@@ -1,0 +1,23 @@
+#root {
+  text-align: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+
+}
+.intro-video {
+  height: auto;
+  width: 100vmin;
+  position:relative;
+}
