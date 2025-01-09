@@ -25,15 +25,23 @@ const HeroSection = () => {
     requestAnimationFrame(raf);
   }, []);
 
-  const [isAtTop, setIsAtTop] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(0);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsAtTop(window.scrollY === 0);
+      setIsAtTop(window.scrollY); // Update scroll position state
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []); // Run only once on mount
+
+  useEffect(() => {
+    // Set hasLoaded to true once the component is mounted and scroll position is handled
+    setTimeout(() => {
+      setHasLoaded(true);
+    }, 500);
   }, []);
 
   const scrollDown = () => {
@@ -155,17 +163,16 @@ const HeroSection = () => {
         className="arrow"
         animate={{
           y: [0, -10, 0], // Floating animation
-          opacity: isAtTop ? 1 : 0, // Fast fade-out when scrolling
         }}
         transition={{
           y: { duration: 2, ease: "easeInOut", repeat: Infinity }, // Slow floating animation
-          opacity: { duration: 0.3, ease: "easeOut" }, // Faster opacity change
         }}
         whileHover={{
           scale: 1.5,
           transition: { duration: 0.3, ease: "easeInOut" },
         }}
         onClick={scrollDown}
+        style={{ opacity: hasLoaded ? 1 - isAtTop / 100 : 0 }}
       />
     </section>
   );
@@ -205,12 +212,15 @@ const Letter = ({
     [0, 0.25],
     [0, rotateY]
   );
-
+  // useEffect(() => {
+  //   // Log the updated scroll position whenever it changes
+  //   console.log(isAtTop);
+  // }, [isAtTop]); // This runs whenever `isAtTop` changes
   return (
     <motion.div
       className={letterTitle}
       initial={
-        isAtTop
+        isAtTop == 0
           ? {
               opacity: 0,
               x: xSpeed * 300 * 0.1,
@@ -221,9 +231,9 @@ const Letter = ({
           : false
       }
       animate={
-        isAtTop ? { opacity: 1, x: 0, y: 0, rotateX: 0, rotateY: 0 } : {}
+        isAtTop == 0 ? { opacity: 1, x: 0, y: 0, rotateX: 0, rotateY: 0 } : {}
       }
-      transition={isAtTop ? { duration: 0.8, ease: [0.5, 0, 0.2, 1] } : {}}
+      transition={isAtTop == 0 ? { duration: 0.8, ease: [0.5, 0, 0.2, 1] } : {}}
       style={{
         x: translateX,
         y: translateY,

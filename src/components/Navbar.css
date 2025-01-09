@@ -1,12 +1,14 @@
 .navbar {
   position: fixed;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 
-  padding: 10px 20px;
+  padding: 10px 10px;
   background: 111111;
   color: white;
   height: 10vh;
+  width: 100%;
 
 }
 
@@ -17,4 +19,9 @@
 
 .navbar ul li {
   margin: 0 10px;
+}
+
+.logo{
+  height: 50%;
+  width: auto;
 }
