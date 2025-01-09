@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion"; 
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 
@@ -10,6 +10,7 @@ import c from "../assets/c.png";
 import u from "../assets/u.png";
 import b from "../assets/b.png";
 import e from "../assets/e.png";
+import downarrow from "../assets/downarrow.png";
 
 const HeroSection = () => {
   useEffect(() => {
@@ -105,6 +106,7 @@ const HeroSection = () => {
           />
         </div>
       </div>
+      <img src={downarrow} className="arrow" />
     </section>
   );
 };
@@ -141,7 +143,7 @@ const Letter = ({
     scrollProgress,
     [0, 0.25],
     [0, rotateY]
-  ); 
+  );
 
   return (
     <motion.div

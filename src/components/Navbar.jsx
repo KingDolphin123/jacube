@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
+import { useScroll, useTransform, motion } from "framer-motion";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const { scrollY } = useScroll();
+
+  const navbarY = useTransform(scrollY, [200, 350], [-100, 0]);
   return (
-    <nav className="navbar">
+    <motion.nav
+      style={{
+        y: navbarY,
+      }}
+      className="navbar"
+    >
       <h1>Artist Name</h1>
       <ul>
         <li>
@@ -19,7 +28,7 @@ const Navbar = () => {
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 
