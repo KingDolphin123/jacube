@@ -25,6 +25,44 @@ const HeroSection = () => {
     requestAnimationFrame(raf);
   }, []);
 
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY === 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollDown = () => {
+    const scrollDistance = window.innerHeight / 2.3;
+    const scrollDuration = 1300;
+
+    const start = window.scrollY;
+    const end = start + scrollDistance;
+    const startTime = performance.now();
+
+    const easeOut = (t) => {
+      return 1 - Math.pow(1 - t, 3);
+    };
+
+    const scrollStep = (timestamp) => {
+      const progress = (timestamp - startTime) / scrollDuration;
+      const easedProgress = easeOut(progress); // Apply the easing function
+      const newPosition = start + (end - start) * Math.min(easedProgress, 1);
+
+      window.scrollTo(0, newPosition);
+
+      if (progress < 1) {
+        requestAnimationFrame(scrollStep);
+      }
+    };
+
+    requestAnimationFrame(scrollStep);
+  };
+
   const container = useRef();
   const { scrollYProgress } = useScroll({});
 
@@ -43,6 +81,7 @@ const HeroSection = () => {
             opacity={30}
             rotateX={90}
             rotateY={90}
+            isAtTop={isAtTop}
           />
           <Letter
             src={a}
@@ -55,6 +94,7 @@ const HeroSection = () => {
             opacity={10}
             rotateX={60}
             rotateY={-90}
+            isAtTop={isAtTop}
           />
           <Letter
             src={c}
@@ -67,6 +107,7 @@ const HeroSection = () => {
             opacity={0}
             rotateX={20}
             rotateY={-60}
+            isAtTop={isAtTop}
           />
           <Letter
             src={u}
@@ -79,6 +120,7 @@ const HeroSection = () => {
             opacity={40}
             rotateX={90}
             rotateY={40}
+            isAtTop={isAtTop}
           />
           <Letter
             src={b}
@@ -91,6 +133,7 @@ const HeroSection = () => {
             opacity={20}
             rotateX={70}
             rotateY={50}
+            isAtTop={isAtTop}
           />
           <Letter
             src={e}
@@ -103,10 +146,27 @@ const HeroSection = () => {
             opacity={10}
             rotateX={90}
             rotateY={90}
+            isAtTop={isAtTop}
           />
         </div>
       </div>
-      <img src={downarrow} className="arrow" />
+      <motion.img
+        src={downarrow}
+        className="arrow"
+        animate={{
+          y: [0, -10, 0], // Floating animation
+          opacity: isAtTop ? 1 : 0, // Fast fade-out when scrolling
+        }}
+        transition={{
+          y: { duration: 2, ease: "easeInOut", repeat: Infinity }, // Slow floating animation
+          opacity: { duration: 0.3, ease: "easeOut" }, // Faster opacity change
+        }}
+        whileHover={{
+          scale: 1.5,
+          transition: { duration: 0.3, ease: "easeInOut" },
+        }}
+        onClick={scrollDown}
+      />
     </section>
   );
 };
@@ -121,6 +181,7 @@ const Letter = ({
   rotateX,
   rotateY,
   letterTitle,
+  isAtTop,
 }) => {
   const translateX = useTransform(scrollProgress, [0, 1], [0, xSpeed * 300]);
   const translateY = useTransform(scrollProgress, [0, 1], [0, ySpeed * 200]);
@@ -148,6 +209,21 @@ const Letter = ({
   return (
     <motion.div
       className={letterTitle}
+      initial={
+        isAtTop
+          ? {
+              opacity: 0,
+              x: xSpeed * 300 * 0.1,
+              y: ySpeed * 300 * 0.1,
+              rotateX: rotateX * 0.7,
+              rotateY: rotateY * 0.7,
+            }
+          : false
+      }
+      animate={
+        isAtTop ? { opacity: 1, x: 0, y: 0, rotateX: 0, rotateY: 0 } : {}
+      }
+      transition={isAtTop ? { duration: 0.8, ease: [0.5, 0, 0.2, 1] } : {}}
       style={{
         x: translateX,
         y: translateY,

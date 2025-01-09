@@ -8,20 +8,19 @@ import video from "./assets/intro.mp4";
 import "./App.css";
 
 function App() {
-  const [isVideoFinished, setIsVideoFinished] = useState(false);
-  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
+  // const [isVideoFinished, setIsVideoFinished] = useState(false);
+  // const [isLoaderVisible, setIsLoaderVisible] = useState(true);
 
-  const handleVideoEnd = () => {
-    setIsVideoFinished(true);
-    setTimeout(() => {
-      setIsLoaderVisible(false);
-    }, 1000);
-  };
+  // const handleVideoEnd = () => {
+  //   setIsVideoFinished(true);
+  //   setTimeout(() => {
+  //     setIsLoaderVisible(false);
+  //   }, 1000);
+  // };
 
   return (
     <div className="App">
-      {/* Video Section */}
-      {!isVideoFinished && (
+      {/* {!isVideoFinished && (
         <div className="video-container">
           <video
             className="intro-video"
@@ -33,24 +32,21 @@ function App() {
           />
         </div>
       )}
-
-      {/* Loader Section */}
       {isLoaderVisible && (
         <div className="loader-container">
           <div className="loader">Loading...</div>
         </div>
       )}
-      {/* Main Content */}
-      {isVideoFinished && !isLoaderVisible && (
-        <div className="main-content">
-          <Router>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </Router>
-        </div>
-      )}
+      {isVideoFinished && !isLoaderVisible && ( */}
+      <div className="main-content">
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Router>
+      </div>
+      {/* )} */}
     </div>
   );
 }
