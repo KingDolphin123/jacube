@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import video from "./assets/intro.mp4";
+
 
 import "./App.css";
 
