@@ -14,8 +14,8 @@ function App() {
   const handleVideoEnd = () => {
     setIsVideoFinished(true);
     setTimeout(() => {
-      setIsLoaderVisible(false); // Hide loader after 1 second
-    }, 1000); // 1-second delay
+      setIsLoaderVisible(false);
+    }, 1000);
   };
 
   return (
@@ -25,11 +25,11 @@ function App() {
         <div className="video-container">
           <video
             className="intro-video"
-            src={video} // Add your video path here
+            src={video}
             autoPlay
             muted
-            loop={false} // Set loop to false to stop the video from looping
-            onEnded={handleVideoEnd} // Set the state to true when video ends
+            loop={false}
+            onEnded={handleVideoEnd}
           />
         </div>
       )}

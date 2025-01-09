@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion"; // Add useScroll and useTransform
-import { useEffect, useRef, useState } from "react"; // Add useState
+import { motion, useScroll, useTransform } from "framer-motion"; 
+import { useEffect, useRef, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 
 import "./HeroSection.css";
@@ -29,82 +29,81 @@ const HeroSection = () => {
 
   return (
     <section className="hero" ref={container}>
-      {/* <div className="scroll-progress-display">
-        <p>Scroll Progress: {scrollProgressValue.toFixed(3)}</p>
-      </div> */}
-      <div className="letter-container">
-        <Letter
-          src={j}
-          alt="J"
-          letterTitle={"letter letter-j"}
-          scrollProgress={scrollYProgress}
-          xSpeed={-6}
-          ySpeed={1}
-          scale={10}
-          opacity={30}
-          rotateX={90}
-          rotateY={90}
-        />
-        <Letter
-          src={a}
-          alt="A"
-          letterTitle={"letter letter-a"}
-          scrollProgress={scrollYProgress}
-          xSpeed={-3}
-          ySpeed={6}
-          scale={30}
-          opacity={10}
-          rotateX={60}
-          rotateY={-90}
-        />
-        <Letter
-          src={c}
-          alt="C"
-          letterTitle={"letter letter-c"}
-          scrollProgress={scrollYProgress}
-          xSpeed={-1}
-          ySpeed={-3}
-          scale={25}
-          opacity={0}
-          rotateX={20}
-          rotateY={-60}
-        />
-        <Letter
-          src={u}
-          alt="U"
-          letterTitle={"letter letter-u"}
-          scrollProgress={scrollYProgress}
-          xSpeed={3}
-          ySpeed={1}
-          scale={15}
-          opacity={40}
-          rotateX={90}
-          rotateY={40}
-        />
-        <Letter
-          src={b}
-          alt="B"
-          letterTitle={"letter letter-b"}
-          scrollProgress={scrollYProgress}
-          xSpeed={2}
-          ySpeed={-4}
-          scale={20}
-          opacity={20}
-          rotateX={70}
-          rotateY={50}
-        />
-        <Letter
-          src={e}
-          alt="E"
-          letterTitle={"letter letter-e"}
-          scrollProgress={scrollYProgress}
-          xSpeed={5}
-          ySpeed={5}
-          scale={20}
-          opacity={10}
-          rotateX={90}
-          rotateY={90}
-        />
+      <div className="jacube-letters-bounding">
+        <div className="letter-container">
+          <Letter
+            src={j}
+            alt="J"
+            letterTitle={"letter letter-j"}
+            scrollProgress={scrollYProgress}
+            xSpeed={-6}
+            ySpeed={1}
+            scale={10}
+            opacity={30}
+            rotateX={90}
+            rotateY={90}
+          />
+          <Letter
+            src={a}
+            alt="A"
+            letterTitle={"letter letter-a"}
+            scrollProgress={scrollYProgress}
+            xSpeed={-3}
+            ySpeed={6}
+            scale={30}
+            opacity={10}
+            rotateX={60}
+            rotateY={-90}
+          />
+          <Letter
+            src={c}
+            alt="C"
+            letterTitle={"letter letter-c"}
+            scrollProgress={scrollYProgress}
+            xSpeed={-1}
+            ySpeed={-3}
+            scale={25}
+            opacity={0}
+            rotateX={20}
+            rotateY={-60}
+          />
+          <Letter
+            src={u}
+            alt="U"
+            letterTitle={"letter letter-u"}
+            scrollProgress={scrollYProgress}
+            xSpeed={3}
+            ySpeed={1}
+            scale={15}
+            opacity={40}
+            rotateX={90}
+            rotateY={40}
+          />
+          <Letter
+            src={b}
+            alt="B"
+            letterTitle={"letter letter-b"}
+            scrollProgress={scrollYProgress}
+            xSpeed={2}
+            ySpeed={-4}
+            scale={20}
+            opacity={20}
+            rotateX={70}
+            rotateY={50}
+          />
+          <Letter
+            src={e}
+            alt="E"
+            letterTitle={"letter letter-e"}
+            scrollProgress={scrollYProgress}
+            xSpeed={5}
+            ySpeed={5}
+            scale={20}
+            opacity={10}
+            rotateX={90}
+            rotateY={90}
+          />
+        </div>
       </div>
     </section>
   );
@@ -137,12 +136,12 @@ const Letter = ({
     scrollProgress,
     [0, 0.25],
     [0, rotateX]
-  ); // Rotate from 0 to 45 degrees on X axis
+  );
   const translateRotateY = useTransform(
     scrollProgress,
     [0, 0.25],
     [0, rotateY]
-  ); // Rotate from 0 to 45 degrees on Y axis
+  ); 
 
   return (
     <motion.div

@@ -1,55 +1,53 @@
 .hero {
   height: 200vh;
+  width: auto;
+  margin-top: -15vh;
   background: url("/banner.jpg") no-repeat center;
   background-size: cover;
   color: white;
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
-  /* position: relative; */
-
   display: flex;
   justify-content: center;
-
-  /* align-items: center; */
 }
-
-.letter-container {
-  margin-top: 10%;
+.jacube-letters-bounding {
+  height: 100vh;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
+}
+.letter-container {
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 100%;
   height: 26vh;
 }
 
 .letter {
-    height: 26vmin;
-    width: auto;
-
+  height: 26vmin;
+  width: auto;
   -drag: none;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  /* draggable:"false"; */
-  /* position: absolute; */
 }
 
 .letter-a {
-  margin-left: -2.5vmin; /* Move 'B' to the left */
+  margin-left: -2.5vmin;
 }
 .letter-c {
-  margin-left: -1.5vmin; /* Move 'B' to the left */
+  margin-left: -1.5vmin;
 }
 .letter-u {
-  margin-left: -1.3vmin; /* Move 'B' to the left */
+  margin-left: -1.3vmin;
 }
 .letter-b {
-  margin-left: -3.3vmin; /* Move 'B' to the left */
+  margin-left: -3.3vmin;
 }
 .letter-e {
-  margin-left: -3.2vmin; /* Move 'B' to the left */
+  margin-left: -3.2vmin;
 }
