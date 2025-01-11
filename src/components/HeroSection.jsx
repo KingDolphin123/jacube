@@ -12,7 +12,7 @@ import b from "../assets/b.png";
 import e from "../assets/e.png";
 import downarrow from "../assets/downarrow.png";
 
-const HeroSection = () => {
+const HeroSection = ({ boundingRef }) => {
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -30,15 +30,14 @@ const HeroSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsAtTop(window.scrollY); // Update scroll position state
+      setIsAtTop(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // Run only once on mount
+  }, []);
 
   useEffect(() => {
-    // Set hasLoaded to true once the component is mounted and scroll position is handled
     setTimeout(() => {
       setHasLoaded(true);
     }, 500);
@@ -52,23 +51,37 @@ const HeroSection = () => {
     const end = start + scrollDistance;
     const startTime = performance.now();
 
+    let animationFrameId;
+
     const easeOut = (t) => {
       return 1 - Math.pow(1 - t, 3);
     };
 
     const scrollStep = (timestamp) => {
       const progress = (timestamp - startTime) / scrollDuration;
-      const easedProgress = easeOut(progress); // Apply the easing function
+      const easedProgress = easeOut(progress);
       const newPosition = start + (end - start) * Math.min(easedProgress, 1);
 
       window.scrollTo(0, newPosition);
 
       if (progress < 1) {
-        requestAnimationFrame(scrollStep);
+        animationFrameId = requestAnimationFrame(scrollStep);
       }
     };
 
-    requestAnimationFrame(scrollStep);
+    // Event listener to cancel animation on user scroll
+    const stopAnimation = () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      window.removeEventListener("wheel", stopAnimation);
+      window.removeEventListener("touchmove", stopAnimation);
+    };
+
+    window.addEventListener("wheel", stopAnimation, { passive: true });
+    window.addEventListener("touchmove", stopAnimation, { passive: true });
+
+    animationFrameId = requestAnimationFrame(scrollStep);
   };
 
   const container = useRef();
@@ -76,7 +89,7 @@ const HeroSection = () => {
 
   return (
     <section className="hero" ref={container}>
-      <div className="jacube-letters-bounding">
+      <div className="jacube-letters-bounding" ref={boundingRef}>
         <div className="letter-container">
           <Letter
             src={j}
@@ -162,10 +175,10 @@ const HeroSection = () => {
         src={downarrow}
         className="arrow"
         animate={{
-          y: [0, -10, 0], // Floating animation
+          y: [0, -10, 0],
         }}
         transition={{
-          y: { duration: 2, ease: "easeInOut", repeat: Infinity }, // Slow floating animation
+          y: { duration: 2, ease: "easeInOut", repeat: Infinity },
         }}
         whileHover={{
           scale: 1.5,
@@ -212,10 +225,6 @@ const Letter = ({
     [0, 0.25],
     [0, rotateY]
   );
-  // useEffect(() => {
-  //   // Log the updated scroll position whenever it changes
-  //   console.log(isAtTop);
-  // }, [isAtTop]); // This runs whenever `isAtTop` changes
   return (
     <motion.div
       className={letterTitle}
@@ -223,8 +232,8 @@ const Letter = ({
         isAtTop == 0
           ? {
               opacity: 0,
-              x: xSpeed * 300 * 0.1,
-              y: ySpeed * 300 * 0.1,
+              x: xSpeed * 100 * 0.1,
+              y: ySpeed * 100 * 0.1,
               rotateX: rotateX * 0.7,
               rotateY: rotateY * 0.7,
             }
