@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 
 import "./HeroSection.css";
@@ -69,7 +69,6 @@ const HeroSection = ({ boundingRef }) => {
       }
     };
 
-    // Event listener to cancel animation on user scroll
     const stopAnimation = () => {
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
@@ -83,12 +82,9 @@ const HeroSection = ({ boundingRef }) => {
 
     animationFrameId = requestAnimationFrame(scrollStep);
   };
-
-  const container = useRef();
   const { scrollYProgress } = useScroll({});
-
   return (
-    <section className="hero" ref={container}>
+    <section className="hero">
       <div className="jacube-letters-bounding" ref={boundingRef}>
         <div className="letter-container">
           <Letter

@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
 
@@ -40,7 +39,7 @@ function App() {
       {isVideoFinished && !isLoaderVisible && ( */}
       <div className="main-content">
         <Router>
-          <Navbar />
+
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>

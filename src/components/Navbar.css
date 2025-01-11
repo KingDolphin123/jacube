@@ -4,24 +4,15 @@
   justify-content: center;
   align-items: center;
 
-  padding: 10px 10px;
-  background: 111111;
+  top: 0;
+  left: 0;
+  background: #1b1b1b;
   color: white;
   height: 10vh;
   width: 100%;
-
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-}
-
-.navbar ul li {
-  margin: 0 10px;
-}
-
-.logo{
+.logo {
   height: 50%;
   width: auto;
 }

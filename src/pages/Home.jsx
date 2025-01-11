@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 import "./Home.css";
 import SpotSection from "../components/SpotSection";
+import Navbar from "../components/Navbar";
 import About from "../components/About";
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Navbar />
       <HeroSection boundingRef={boundingRef} />
       <SpotSection songWidth={boundingWidth} />
       <About />
