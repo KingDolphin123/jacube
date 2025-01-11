@@ -49,13 +49,13 @@ const Home = () => {
       <Navbar />
       <HeroSection boundingRef={boundingRef} />
       <SectionTitle
-        title="MUSIC MUSIC MUSIC MUSIC MUSIC"
+        title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"
         direction="left"
         spotSectionHeight={0}
         songWidth={boundingWidth}
       />
       <SectionTitle
-        title="MUSIC MUSIC MUSIC MUSIC MUSIC"
+        title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"
         direction="right"
         spotSectionHeight={0}
         songWidth={boundingWidth}
@@ -68,7 +68,7 @@ const Home = () => {
         onIframeLeave={handleIframeLeave}
       />
       <SectionTitle
-        title="ABOUT ABOUT ABOUT ABOUT ABOUT"
+        title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="right"
         spotSectionHeight={spotSectionHeight + 300}
         songWidth={boundingWidth}
