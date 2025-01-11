@@ -32,8 +32,7 @@ const About = ({ songWidth }) => {
         style={{
           width: songDisplayWidth,
           flexDirection: isMobile ? "column" : "row",
-          opacity: (yScroll - 1359) / 100,
-
+          opacity: (yScroll - (isMobile ? 1000 : 1400)) / 100,
         }}
       >
         <img src={jacubelogo} className="logoAbout" />

@@ -74,9 +74,9 @@ const Home = () => {
         songWidth={boundingWidth}
       />
       <SectionTitle
-        title="ABOUT ABOUT ABOUT ABOUT ABOUT"
+        title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="left"
-        spotSectionHeight={spotSectionHeight - 1500}
+        spotSectionHeight={spotSectionHeight + 300}
         songWidth={boundingWidth}
       />
       <About songWidth={boundingWidth} />
