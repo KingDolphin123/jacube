@@ -49,7 +49,7 @@ const Home = () => {
         onIframeEnter={handleIframeEnter}
         onIframeLeave={handleIframeLeave}
       />
-      <About />
+      {/* <About /> */}
 
       {!isMobile && <Cursor isIframeHovered={isIframeHovered} />}
     </div>

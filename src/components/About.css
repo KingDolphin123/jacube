@@ -1,24 +1,24 @@
-.about{
-    height: 80vh;
-    background-color: black;
+.about {
+  height: 80vh;
+  background-color: black;
 }
 .custom-container {
-    background-color: black;
-    position: relative;
-    height: 80vh;
-    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
-  }
-  
-  /* Inner container with relative positioning */
-  .custom-inner-container {
-    position: relative;
-    height: calc(100vh + 80vh);
-    top: -100vh;
-  }
-  
-  /* Sticky section */
-  .sticky-section {
-    height: 80vh;
-    position: sticky;
-    top: calc(100vh - 80vh);
-  }
+  background-color: #111416;
+  position: relative;
+  height: 80vh;
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+}
+
+/* Inner container with relative positioning */
+.custom-inner-container {
+  position: relative;
+  height: calc(100vh + 80vh);
+  top: -100vh;
+}
+
+/* Sticky section */
+.sticky-section {
+  height: 80vh;
+  position: sticky;
+  top: calc(100vh - 80vh);
+}

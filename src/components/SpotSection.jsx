@@ -59,7 +59,7 @@ const SpotSection = ({ songWidth, onIframeEnter, onIframeLeave }) => {
           style={{
             borderRadius: "19px",
             opacity: (yScroll - 100) / 100,
-            marginBottom: "130px",
+            marginBottom: "1300",
           }}
           src="https://open.spotify.com/embed/track/0lMJSIrFsTSLHKdU5ekU8S?utm_source=generator"
           width="100%"
@@ -71,15 +71,17 @@ const SpotSection = ({ songWidth, onIframeEnter, onIframeLeave }) => {
           onMouseEnter={onIframeEnter}
           onMouseLeave={onIframeLeave}
         ></iframe>
-        <div
-          className={cursorDiv}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 99999,
-          }}
-        ></div>
+        {!isMobile && (
+          <div
+            className={cursorDiv}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 99999,
+            }}
+          ></div>
+        )}
       </div>
     </div>
   );
