@@ -3,14 +3,18 @@ import { useState, useEffect } from "react";
 
 import "./SpotSection.css";
 
-const SpotSection = ({ songWidth, onIframeEnter, onIframeLeave }) => {
+const SpotSection = ({
+  songWidth,
+  onIframeEnter,
+  onIframeLeave,
+  spotSectionRef,
+}) => {
   const [songDisplayWidth, setSongDisplayWidth] = useState(
     isMobile ? songWidth : "70vw"
   );
 
   useEffect(() => {
     setSongDisplayWidth(isMobile ? songWidth : "60vw");
-    console.log(isMobile);
   }, [songWidth]);
 
   const [yScroll, setyScroll] = useState(0);
@@ -32,15 +36,24 @@ const SpotSection = ({ songWidth, onIframeEnter, onIframeLeave }) => {
   }, []);
 
   return (
-    <div className="spot">
+    <div className="spot" ref={spotSectionRef}>
       <div
         className="songDisplay"
-        style={{ width: songDisplayWidth, position: "relative" }}
+        style={{
+          width: songDisplayWidth,
+          position: "relative",
+          opacity: (yScroll - 125) / 100,
+          border: "3px solid white",
+          padding: "10px",
+          borderRadius: "19px",
+          marginBottom: "13px",
+        }}
+        onMouseEnter={onIframeEnter}
+        onMouseLeave={onIframeLeave}
       >
         <iframe
           style={{
             borderRadius: "19px",
-            opacity: (yScroll - 100) / 100,
             marginBottom: "7px",
             zIndex: 1,
             position: "relative",
@@ -52,14 +65,10 @@ const SpotSection = ({ songWidth, onIframeEnter, onIframeLeave }) => {
           allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-          onMouseEnter={onIframeEnter}
-          onMouseLeave={onIframeLeave}
         ></iframe>
         <iframe
           style={{
             borderRadius: "19px",
-            opacity: (yScroll - 100) / 100,
-            marginBottom: "1300",
           }}
           src="https://open.spotify.com/embed/track/0lMJSIrFsTSLHKdU5ekU8S?utm_source=generator"
           width="100%"
@@ -68,8 +77,6 @@ const SpotSection = ({ songWidth, onIframeEnter, onIframeLeave }) => {
           allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-          onMouseEnter={onIframeEnter}
-          onMouseLeave={onIframeLeave}
         ></iframe>
         {!isMobile && (
           <div

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Baskerville Old Face";
+  src: url("@/fonts/BaskervilleOldFace.ttf") format("truetype");
+}
+
+body {
+}
+
+.wrapper {
+  height: 30vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.text {
+  font-size: 26vmin;
+  font-family: "Baskerville Old Face", serif;
+
+  /* transition: transform 0.5s ease-out; */
+
+}

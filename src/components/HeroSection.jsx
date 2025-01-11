@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import Lenis from "@studio-freight/lenis";
 
 import "./HeroSection.css";
 
@@ -13,17 +12,7 @@ import e from "../assets/e.png";
 import downarrow from "../assets/downarrow.png";
 
 const HeroSection = ({ boundingRef }) => {
-  useEffect(() => {
-    const lenis = new Lenis();
 
-    function raf(time) {
-      lenis.raf(time);
-
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
 
   const [isAtTop, setIsAtTop] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -44,7 +33,7 @@ const HeroSection = ({ boundingRef }) => {
   }, []);
 
   const scrollDown = () => {
-    const scrollDistance = window.innerHeight / 2.3;
+    const scrollDistance = 450;
     const scrollDuration = 1300;
 
     const start = window.scrollY;

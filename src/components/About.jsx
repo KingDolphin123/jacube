@@ -1,6 +1,6 @@
 import "./About.css";
 
-import jacubelogo from "../assets/jacubefull.png";
+import jacubelogo from "../assets/about.jpg";
 
 
 const About = () => {
@@ -8,9 +8,8 @@ const About = () => {
     <div className="custom-container">
       <div className="custom-inner-container">
         <div className="sticky-section">
-          <img src={jacubelogo} className="logo" />
-          <img src={jacubelogo} className="logo" />
-          <img src={jacubelogo} className="logo" />
+          <img src={jacubelogo} className="logoAbout" />
+          deez nuts
 
         </div>
       </div>
