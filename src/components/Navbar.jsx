@@ -15,6 +15,7 @@ const Navbar = () => {
       style={{
         y: navbarY,
         opacity: opacity,
+        zIndex: 99999,
       }}
       className="navbar"
     >

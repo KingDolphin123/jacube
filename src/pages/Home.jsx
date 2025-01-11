@@ -1,10 +1,12 @@
 import HeroSection from "../components/HeroSection";
 import { useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 import "./Home.css";
 import SpotSection from "../components/SpotSection";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
+import Cursor from "../components/Cursor";
 
 const Home = () => {
   const boundingRef = useRef(null);
@@ -21,7 +23,7 @@ const Home = () => {
     if (boundingRef.current) observer.observe(boundingRef.current);
 
     window.addEventListener("resize", updateWidth);
-    updateWidth(); // Set initial width
+    updateWidth();
 
     return () => {
       window.removeEventListener("resize", updateWidth);
@@ -29,12 +31,27 @@ const Home = () => {
     };
   }, []);
 
+  const [isIframeHovered, setIsIframeHovered] = useState(false);
+
+  const handleIframeEnter = () => {
+    setIsIframeHovered(true);
+  };
+
+  const handleIframeLeave = () => {
+    setIsIframeHovered(false);
+  };
   return (
     <div className="home">
       <Navbar />
       <HeroSection boundingRef={boundingRef} />
-      <SpotSection songWidth={boundingWidth} />
+      <SpotSection
+        songWidth={boundingWidth}
+        onIframeEnter={handleIframeEnter}
+        onIframeLeave={handleIframeLeave}
+      />
       <About />
+
+      {!isMobile && <Cursor isIframeHovered={isIframeHovered} />}
     </div>
   );
 };

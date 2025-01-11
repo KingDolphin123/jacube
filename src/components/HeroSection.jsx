@@ -99,6 +99,7 @@ const HeroSection = ({ boundingRef }) => {
             rotateX={90}
             rotateY={90}
             isAtTop={isAtTop}
+            index={0}
           />
           <Letter
             src={a}
@@ -112,6 +113,7 @@ const HeroSection = ({ boundingRef }) => {
             rotateX={60}
             rotateY={-90}
             isAtTop={isAtTop}
+            index={1}
           />
           <Letter
             src={c}
@@ -125,6 +127,7 @@ const HeroSection = ({ boundingRef }) => {
             rotateX={20}
             rotateY={-60}
             isAtTop={isAtTop}
+            index={2}
           />
           <Letter
             src={u}
@@ -138,6 +141,7 @@ const HeroSection = ({ boundingRef }) => {
             rotateX={90}
             rotateY={40}
             isAtTop={isAtTop}
+            index={3}
           />
           <Letter
             src={b}
@@ -151,6 +155,7 @@ const HeroSection = ({ boundingRef }) => {
             rotateX={70}
             rotateY={50}
             isAtTop={isAtTop}
+            index={4}
           />
           <Letter
             src={e}
@@ -164,6 +169,7 @@ const HeroSection = ({ boundingRef }) => {
             rotateX={90}
             rotateY={90}
             isAtTop={isAtTop}
+            index={5}
           />
         </div>
       </div>
@@ -198,12 +204,13 @@ const Letter = ({
   rotateY,
   letterTitle,
   isAtTop,
+  index,
 }) => {
   const translateX = useTransform(scrollProgress, [0, 1], [0, xSpeed * 300]);
   const translateY = useTransform(scrollProgress, [0, 1], [0, ySpeed * 200]);
   const translateScale = useTransform(
     scrollProgress,
-    [0, 0.5],
+    [0, 0.25],
     [1, scale / 100]
   );
   const translateOpacity = useTransform(
@@ -213,14 +220,17 @@ const Letter = ({
   );
   const translateRotateX = useTransform(
     scrollProgress,
-    [0, 0.25],
+    [0, 0.15],
     [0, rotateX]
   );
   const translateRotateY = useTransform(
     scrollProgress,
-    [0, 0.25],
+    [0, 0.15],
     [0, rotateY]
   );
+
+  const staggerDelay = index * 0.3;
+
   return (
     <motion.div
       className={letterTitle}
@@ -235,10 +245,30 @@ const Letter = ({
             }
           : false
       }
-      animate={
-        isAtTop == 0 ? { opacity: 1, x: 0, y: 0, rotateX: 0, rotateY: 0 } : {}
-      }
-      transition={isAtTop == 0 ? { duration: 0.8, ease: [0.5, 0, 0.2, 1] } : {}}
+      animate={{
+        ...(isAtTop === 0 && {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          rotateX: 0,
+          rotateY: 0,
+        }),
+        ...(isAtTop === 0 && { scale: [1, 0.95, 1] }),
+      }}
+      transition={{
+        ...(isAtTop === 0 ? { duration: 0.8, ease: [0.5, 0, 0.2, 1] } : {}),
+
+        ...(isAtTop === 0
+          ? {
+              scale: {
+                duration: 2,
+                ease: "easeInOut",
+                repeat: Infinity,
+                delay: staggerDelay,
+              },
+            }
+          : {}),
+      }}
       style={{
         x: translateX,
         y: translateY,

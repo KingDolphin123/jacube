@@ -35,6 +35,7 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  z-index: 0;
 }
 
 .letter-a {
@@ -61,4 +62,5 @@
     position: absolute;
     top:50vh;
     left:49vw;
+    z-index: 2;
 }

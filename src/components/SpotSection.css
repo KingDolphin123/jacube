@@ -1,11 +1,21 @@
 .spot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
 }
 
 .songDisplay {
   width: 100%;
+}
 
+.cursor-overlay {
+  width: 100%;
+  height: 100%;
+}
+
+.destroydivhaha {
+  width: 0%;
+  height: 0%;
 }
