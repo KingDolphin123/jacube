@@ -11,7 +11,7 @@ const Footer = () => {
   const navbarY = useTransform(
     scrollY,
     [200, 350],
-    [window.innerHeight, window.innerHeight - 0.1 * window.innerHeight]
+    [100, 0]
   );
   const opacity = useTransform(scrollY, [200, 350], [0, 1]);
 
