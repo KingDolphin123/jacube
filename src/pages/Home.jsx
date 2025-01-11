@@ -4,6 +4,8 @@ import { isMobile } from "react-device-detect";
 import "./Home.css";
 import SpotSection from "../components/SpotSection";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
 import SectionTitle from "../components/SectionTitle";
 import About from "../components/About";
 import Cursor from "../components/Cursor";
@@ -56,10 +58,12 @@ const Home = () => {
       <SectionTitle
         title="ABOUT"
         direction="right"
-        spotSectionHeight={spotSectionHeight + 400}
+        spotSectionHeight={spotSectionHeight + 300}
       />
       <About songWidth={boundingWidth} />
       {!isMobile && <Cursor isIframeHovered={isIframeHovered} />}
+      <Footer />
+
     </div>
   );
 };

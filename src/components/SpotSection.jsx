@@ -55,7 +55,6 @@ const SpotSection = ({
           style={{
             borderRadius: "19px",
             marginBottom: "7px",
-            zIndex: 1,
             position: "relative",
           }}
           src="https://open.spotify.com/embed/track/2igx5oDhXYUMP9KHPZC1BQ?utm_source=generator"
@@ -69,6 +68,7 @@ const SpotSection = ({
         <iframe
           style={{
             borderRadius: "19px",
+            position: "relative",
           }}
           src="https://open.spotify.com/embed/track/0lMJSIrFsTSLHKdU5ekU8S?utm_source=generator"
           width="100%"

@@ -1,7 +1,7 @@
-.navbar {
+.footer {
   position: fixed;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 
   top: 0;
@@ -12,8 +12,9 @@
   width: 100%;
 }
 
-.logo {
-  height: 50%;
-  width: auto;
-  position: absolute;
+.socials {
+  padding-right:2vw;
+  height: 5vmin;
+  width: 5vmin;
+  object-fit: contain;
 }

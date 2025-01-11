@@ -15,11 +15,17 @@ const Navbar = () => {
       style={{
         y: navbarY,
         opacity: opacity,
-        zIndex: 99999,
+        zIndex: 3,
       }}
       className="navbar"
     >
-      <img src={jacubelogo} className="logo" />
+      <img
+        src={jacubelogo}
+        className="logo"
+        style={{
+          zIndex: 15,
+        }}
+      />
     </motion.nav>
   );
 };

@@ -12,13 +12,28 @@ const About = ({ songWidth }) => {
   useEffect(() => {
     setSongDisplayWidth(isMobile ? songWidth : "70vw");
   }, [songWidth]);
+
+  const [yScroll, setyScroll] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setyScroll(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="custom-container">
       <div
         className="sticky-section"
         style={{
           width: songDisplayWidth,
-          flexDirection: isMobile ? "columnn" : "row"
+          flexDirection: isMobile ? "column" : "row",
+          opacity: (yScroll - 1359) / 100,
+
         }}
       >
         <img src={jacubelogo} className="logoAbout" />
