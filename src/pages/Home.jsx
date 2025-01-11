@@ -48,7 +48,19 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <HeroSection boundingRef={boundingRef} />
-      <SectionTitle title="MUSIC" direction="left" spotSectionHeight={0} />
+      <SectionTitle
+        title="MUSIC MUSIC MUSIC MUSIC MUSIC"
+        direction="left"
+        spotSectionHeight={0}
+        songWidth={boundingWidth}
+      />
+      <SectionTitle
+        title="MUSIC MUSIC MUSIC MUSIC MUSIC"
+        direction="right"
+        spotSectionHeight={0}
+        songWidth={boundingWidth}
+      />
+
       <SpotSection
         spotSectionRef={spotSectionRef}
         songWidth={boundingWidth}
@@ -56,14 +68,20 @@ const Home = () => {
         onIframeLeave={handleIframeLeave}
       />
       <SectionTitle
-        title="ABOUT"
+        title="ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="right"
         spotSectionHeight={spotSectionHeight + 300}
+        songWidth={boundingWidth}
+      />
+      <SectionTitle
+        title="ABOUT ABOUT ABOUT ABOUT ABOUT"
+        direction="left"
+        spotSectionHeight={spotSectionHeight - 1500}
+        songWidth={boundingWidth}
       />
       <About songWidth={boundingWidth} />
       {!isMobile && <Cursor isIframeHovered={isIframeHovered} />}
       <Footer />
-
     </div>
   );
 };

@@ -4,24 +4,27 @@
 }
 
 .wrapper {
-  height: 30vmin;
+  height: 20vmin;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
   overflow-y: hidden;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  /* margin-top: 5vh;
+  margin-bottom: 5vh; */
   z-index: 4;
+  white-space: nowrap;
+}
+.flexwrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text {
-  font-size: 26vmin;
+  font-size: 20vmin;
   font-family: "Baskerville Old Face", serif;
   z-index: 4;
 
-  
-
   /* transition: transform 0.5s ease-out; */
-
 }
