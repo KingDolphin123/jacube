@@ -10,8 +10,8 @@
   align-items: center;
   overflow-x: hidden;
   overflow-y: hidden;
-
-
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .text {

@@ -12,28 +12,12 @@ import e from "../assets/e.png";
 import downarrow from "../assets/downarrow.png";
 
 const HeroSection = ({ boundingRef }) => {
-
-
   const [isAtTop, setIsAtTop] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsAtTop(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setHasLoaded(true);
-    }, 500);
-  }, []);
+  const { scrollYProgress } = useScroll({});
 
   const scrollDown = () => {
-    const scrollDistance = 450;
+    const scrollDistance = 410;
     const scrollDuration = 1300;
 
     const start = window.scrollY;
@@ -71,7 +55,18 @@ const HeroSection = ({ boundingRef }) => {
 
     animationFrameId = requestAnimationFrame(scrollStep);
   };
-  const { scrollYProgress } = useScroll({});
+
+  useEffect(() => {
+    const handleScroll = () => setIsAtTop(window.scrollY);
+
+    window.addEventListener("scroll", handleScroll);
+    setHasLoaded(true);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section className="hero">
       <div className="jacube-letters-bounding" ref={boundingRef}>

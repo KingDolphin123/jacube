@@ -14,7 +14,7 @@ const SpotSection = ({
   );
 
   useEffect(() => {
-    setSongDisplayWidth(isMobile ? songWidth : "60vw");
+    setSongDisplayWidth(isMobile ? songWidth : "70vw");
   }, [songWidth]);
 
   const [yScroll, setyScroll] = useState(0);
@@ -24,7 +24,7 @@ const SpotSection = ({
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setyScroll(currentScrollY);
-      if ((currentScrollY - 100) / 100 > 0) {
+      if ((currentScrollY - 350) / 100 > 0) {
         setCursorDiv("destroydivhaha");
       } else {
         setCursorDiv("cursor-overlay");
@@ -42,7 +42,7 @@ const SpotSection = ({
         style={{
           width: songDisplayWidth,
           position: "relative",
-          opacity: (yScroll - 125) / 100,
+          opacity: (yScroll - 350) / 100,
           border: "3px solid white",
           padding: "10px",
           borderRadius: "19px",

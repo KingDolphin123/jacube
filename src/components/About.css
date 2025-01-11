@@ -1,9 +1,48 @@
+@font-face {
+  font-family: "Baskerville Old Face";
+  src: url("@/fonts/BaskervilleOldFace.ttf") format("truetype");
+}
+
 .about {
   height: 80vh;
+  
 }
-.logoAbout{
+.logoAbout {
   max-height: 640px;
   max-width: 640px;
   width: 90vw;
   height: auto;
+}
+.sticky-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 3px solid white;
+  padding: 10px;
+  border-radius: 19px;
+  font-family: "Baskerville Old Face", serif;
+}
+
+.custom-container {
+  display: flex;
+  justify-content: center;
+}
+
+.textblob{
+  margin:4vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.header{
+  font-size: 15vmin;
+  margin-bottom: 0px;
+}
+.subheader{
+  font-size: 5vmin;
+  margin-top:-4vh;
+  font-weight: 1000;
+  line-height: 95%;
+  margin-bottom: 3vh;
 }
