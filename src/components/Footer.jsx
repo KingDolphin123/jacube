@@ -17,7 +17,6 @@ const Footer = () => {
         href="https://www.instagram.com/miamidolphins/"
         target="_blank"
         rel="noreferrer"
-        
       >
         <img alt="instagram" className="socials" src={insta}></img>
       </a>
@@ -25,7 +24,6 @@ const Footer = () => {
         href="https://www.linkedin.com/in/jacob-lee-230984218/"
         target="_blank"
         rel="noreferrer"
-        
       >
         <img alt="linkedin" className="socials" src={linked}></img>
       </a>

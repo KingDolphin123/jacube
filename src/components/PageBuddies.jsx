@@ -69,7 +69,7 @@ const PageBuddies = () => {
           zIndex: 15,
           position: "absolute",
           top: "220vh",
-          left: "7vw",
+          left: "5vw",
           height: "3.5vmax",
         }}
       />
