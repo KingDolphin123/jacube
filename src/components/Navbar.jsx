@@ -21,7 +21,7 @@ const Navbar = () => {
     >
       <img
         src={jacubelogo}
-        className="logo"
+        className="jacubelogo"
         style={{
           zIndex: 15,
         }}

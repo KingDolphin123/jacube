@@ -19,7 +19,7 @@
   align-items: center;
   border: 3px solid white;
   padding: 10px;
-  border-radius: 19px;
+  /* border-radius: 19px; */
   font-family: "Baskerville Old Face", serif;
 }
 
@@ -27,7 +27,7 @@
   margin-top: 3vh;
   display: flex;
   justify-content: center;
-  margin-bottom:30vh;
+  margin-bottom:10vh;
 }
 
 .textblob{
@@ -43,7 +43,7 @@
 }
 .subheader{
   font-size: 5vmin;
-  margin-top:-4vh;
+  margin-top:-1vh;
   font-weight: 1000;
   line-height: 95%;
   margin-bottom: 3vh;

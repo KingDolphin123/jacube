@@ -1,0 +1,28 @@
+@keyframes instant-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+.logo {
+  position: absolute;
+  z-index: 15;
+  height: 2vmax;
+  animation: instant-rotate 4s steps(1) infinite;
+}
+
+.logo:nth-child(2) {
+  animation-delay: .23415s; /* Offset the second image */
+}

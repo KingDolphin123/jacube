@@ -45,8 +45,8 @@ const SpotSection = ({
           opacity: (yScroll - 350) / 100,
           border: "3px solid white",
           padding: "10px",
-          borderRadius: "19px",
-          marginBottom: "13px",
+          // borderRadius: "19px",
+          marginBottom: "50px",
         }}
         onMouseEnter={onIframeEnter}
         onMouseLeave={onIframeLeave}

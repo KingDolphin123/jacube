@@ -77,7 +77,7 @@ const HeroSection = ({ boundingRef }) => {
             letterTitle={"letter letter-j"}
             scrollProgress={scrollYProgress}
             xSpeed={-6}
-            ySpeed={1}
+            ySpeed={6}
             scale={10}
             opacity={30}
             rotateX={90}
@@ -91,7 +91,7 @@ const HeroSection = ({ boundingRef }) => {
             letterTitle={"letter letter-a"}
             scrollProgress={scrollYProgress}
             xSpeed={-3}
-            ySpeed={6}
+            ySpeed={9.5}
             scale={30}
             opacity={10}
             rotateX={60}
@@ -105,7 +105,7 @@ const HeroSection = ({ boundingRef }) => {
             letterTitle={"letter letter-c"}
             scrollProgress={scrollYProgress}
             xSpeed={-1}
-            ySpeed={-3}
+            ySpeed={10}
             scale={25}
             opacity={0}
             rotateX={20}
@@ -118,8 +118,8 @@ const HeroSection = ({ boundingRef }) => {
             alt="U"
             letterTitle={"letter letter-u"}
             scrollProgress={scrollYProgress}
-            xSpeed={3}
-            ySpeed={1}
+            xSpeed={2}
+            ySpeed={8}
             scale={15}
             opacity={40}
             rotateX={90}
@@ -133,9 +133,9 @@ const HeroSection = ({ boundingRef }) => {
             letterTitle={"letter letter-b"}
             scrollProgress={scrollYProgress}
             xSpeed={2}
-            ySpeed={-4}
+            ySpeed={11}
             scale={20}
-            opacity={20}
+            opacity={0}
             rotateX={70}
             rotateY={50}
             isAtTop={isAtTop}
@@ -199,7 +199,7 @@ const Letter = ({
   );
   const translateOpacity = useTransform(
     scrollProgress,
-    [0, 0.75],
+    [0, 0.45],
     [1, opacity / 100]
   );
   const translateRotateX = useTransform(

@@ -38,16 +38,14 @@ const About = ({ songWidth }) => {
         <img src={jacubelogo} className="logoAbout" />
         <div className="textblob">
           <div className="header">Hi!</div>
-          <div className="subheader">i'm kingdolpin</div>
+          <div className="subheader">i'm jacob</div>
           <div className="textbody">
-            i like dolphins and sour gummy worms. "Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            I've been involved with music for as long as I can remember. Started
+            with piano for a few years (I forgot it all) and now guitar for over
+            a decade. I started producing and writing in 2021 and released my
+            first single 'Falling' in May of 2023. My first album 'More than
+            Birds' will be releasing in late April 2025, with the first single,
+            'Jubilee' having been released in November of 2024.
           </div>
         </div>
       </div>

@@ -6,20 +6,9 @@ import insta from "../assets/insta.png";
 import linked from "../assets/linked.png";
 
 const Footer = () => {
-  const { scrollY } = useScroll();
-
-  const navbarY = useTransform(
-    scrollY,
-    [200, 350],
-    [100, 0]
-  );
-  const opacity = useTransform(scrollY, [200, 350], [0, 1]);
-
   return (
     <motion.nav
       style={{
-        y: navbarY,
-        opacity: opacity,
         zIndex: 3,
       }}
       className="footer"

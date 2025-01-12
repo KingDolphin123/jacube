@@ -5,6 +5,8 @@ import "./Home.css";
 import SpotSection from "../components/SpotSection";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import PageBuddies from "../components/PageBuddies";
+
 
 import SectionTitle from "../components/SectionTitle";
 import About from "../components/About";
@@ -81,6 +83,7 @@ const Home = () => {
       />
       <About songWidth={boundingWidth} />
       {!isMobile && <Cursor isIframeHovered={isIframeHovered} />}
+      <PageBuddies />
       <Footer />
     </div>
   );
