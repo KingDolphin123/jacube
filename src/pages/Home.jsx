@@ -72,13 +72,13 @@ const Home = () => {
       <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="right"
-        spotSectionHeight={spotSectionHeight + 300}
+        spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
       />
       <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="left"
-        spotSectionHeight={spotSectionHeight + 300}
+        spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
       />
       <About songWidth={boundingWidth} />
