@@ -1,9 +1,10 @@
-import { useScroll, useTransform, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import "./Footer.css";
 
 import insta from "../assets/insta.png";
 import linked from "../assets/linked.png";
+import github from "../assets/github.png";
 
 const Footer = () => {
   return (
@@ -13,6 +14,13 @@ const Footer = () => {
       }}
       className="footer"
     >
+      <a
+        href="https://github.com/KingDolphin123/jacube"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img alt="github" className="socials" src={github}></img>
+      </a>
       <a
         href="https://www.instagram.com/miamidolphins/"
         target="_blank"
