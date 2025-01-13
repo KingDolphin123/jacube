@@ -185,6 +185,8 @@ const HeroSection = ({ boundingRef }) => {
         style={{
           opacity: hasLoaded ? 1 - isAtTop / 100 : 0,
           top: "25rem",
+          filter: "drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.5))",
+
         }}
       />
     </section>
@@ -275,6 +277,7 @@ const Letter = ({
         rotateX: translateRotateX,
         rotateY: translateRotateY,
         height: isMobile ? "150px" : "200px",
+        filter: "drop-shadow(0px 0px 40px rgba(255, 255, 255, 0.5))",
       }}
       draggable={false}
     >
