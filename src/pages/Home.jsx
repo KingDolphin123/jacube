@@ -15,7 +15,6 @@ const Home = () => {
   const boundingRef = useRef(null);
   const [boundingWidth, setBoundingWidth] = useState(0);
   const [spotSectionHeight, setSpotSectionHeight] = useState(0);
-  const [isIframeHovered, setIsIframeHovered] = useState(false);
 
   const spotSectionRef = useRef(null);
 
@@ -42,8 +41,6 @@ const Home = () => {
     };
   }, []);
 
-  const handleIframeEnter = () => setIsIframeHovered(true);
-  const handleIframeLeave = () => setIsIframeHovered(false);
 
   return (
     <div className="home">
@@ -65,8 +62,6 @@ const Home = () => {
       <SpotSection
         spotSectionRef={spotSectionRef}
         songWidth={boundingWidth}
-        onIframeEnter={handleIframeEnter}
-        onIframeLeave={handleIframeLeave}
       />
       <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
@@ -81,7 +76,7 @@ const Home = () => {
         songWidth={boundingWidth}
       />
       <About songWidth={boundingWidth} />
-      {!isMobile && <Cursor isIframeHovered={isIframeHovered} />}
+      {!isMobile && <Cursor />}
       <PageBuddies />
       <Footer />
     </div>

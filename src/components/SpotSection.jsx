@@ -1,36 +1,58 @@
-import { isMobile } from "react-device-detect";
 import { useState, useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 import "./SpotSection.css";
 import CustomSongEmbed from "./CustomSongEmbed";
 import JubileeCover from "../assets/JubileeCover.png";
+import JubileeAcousticCover from "../assets/JubileeAcousticCover.png";
 
 const SpotSection = ({
   songWidth,
-  onIframeEnter,
-  onIframeLeave,
   spotSectionRef,
 }) => {
   const [songDisplayWidth, setSongDisplayWidth] = useState(
     isMobile ? songWidth : "70vw"
   );
 
-  const songData = {
+  const jubileeSongData = {
     songUrl: "https://open.spotify.com/track/2igx5oDhXYUMP9KHPZC1BQ",
     coverArt: JubileeCover,
     songName: "Jubilee",
     artists: [
       {
         name: "jacube",
-        url: "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ",
+        url: "https://open.spotify.com/artist/7yYcc6vOJDwrRqXz4x7Mma",
       },
       {
         name: "Rachael Tang",
-        url: "https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V",
+        url: "https://open.spotify.com/artist/7bvMVli2S2HlEZGVLBGeEB",
       },
       {
         name: "Josh Yu",
-        url: "https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V",
+        url: "https://open.spotify.com/artist/2bgqAjI8yFxSWZpewAunSw",
+      },
+    ],
+  };
+  const jubileeAcousticSongData = {
+    songUrl: "https://open.spotify.com/track/0lMJSIrFsTSLHKdU5ekU8S",
+    coverArt: JubileeAcousticCover,
+    songName: "Jubilee - Acoustic",
+    artists: [
+      {
+        name: "jacube",
+        url: "https://open.spotify.com/artist/7yYcc6vOJDwrRqXz4x7Mma",
+      },
+      {
+        name: "Sam Pak",
+        url: "https://open.spotify.com/artist/6r64RvBljrPiGgkA0q8Fc1",
+      },
+      {
+        name: "Rachael Tang",
+        url: "https://open.spotify.com/artist/7bvMVli2S2HlEZGVLBGeEB",
+      },
+      {
+        name: "Josh Yu",
+        url: "https://open.spotify.com/artist/2bgqAjI8yFxSWZpewAunSw",
       },
     ],
   };
@@ -40,17 +62,11 @@ const SpotSection = ({
   }, [songWidth]);
 
   const [yScroll, setyScroll] = useState(0);
-  const [cursorDiv, setCursorDiv] = useState("cursor-overlay");
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setyScroll(currentScrollY);
-      if ((currentScrollY - 350) / 100 > 0) {
-        setCursorDiv("destroydivhaha");
-      } else {
-        setCursorDiv("cursor-overlay");
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -70,53 +86,19 @@ const SpotSection = ({
           // borderRadius: "19px",
           marginBottom: "50px",
         }}
-        // onMouseEnter={onIframeEnter}
-        // onMouseLeave={onIframeLeave}
       >
         <CustomSongEmbed
-          songUrl={songData.songUrl}
-          coverArt={songData.coverArt}
-          songName={songData.songName}
-          artists={songData.artists}
+          songUrl={jubileeSongData.songUrl}
+          coverArt={jubileeSongData.coverArt}
+          songName={jubileeSongData.songName}
+          artists={jubileeSongData.artists}
         />
-        {/* <iframe
-          style={{
-            borderRadius: "19px",
-            marginBottom: "7px",
-            position: "relative",
-          }}
-          src="https://open.spotify.com/embed/track/2igx5oDhXYUMP9KHPZC1BQ?utm_source=generator"
-          width="100%"
-          height="352"
-          frameBorder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe> */}
-        <iframe
-          style={{
-            borderRadius: "19px",
-            position: "relative",
-          }}
-          src="https://open.spotify.com/embed/track/0lMJSIrFsTSLHKdU5ekU8S?utm_source=generator"
-          width="100%"
-          height="152"
-          frameBorder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        {!isMobile && (
-          <div
-            className={cursorDiv}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              zIndex: 99999,
-            }}
-          ></div>
-        )}
+        <CustomSongEmbed
+          songUrl={jubileeAcousticSongData.songUrl}
+          coverArt={jubileeAcousticSongData.coverArt}
+          songName={jubileeAcousticSongData.songName}
+          artists={jubileeAcousticSongData.artists}
+        />
       </div>
     </div>
   );

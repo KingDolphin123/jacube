@@ -10,6 +10,9 @@
 .songDisplay {
   width: 100%;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .cursor-overlay {
