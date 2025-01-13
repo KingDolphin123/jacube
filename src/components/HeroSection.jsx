@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 import "./HeroSection.css";
 
@@ -273,6 +274,7 @@ const Letter = ({
         opacity: translateOpacity,
         rotateX: translateRotateX,
         rotateY: translateRotateY,
+        height: isMobile ? "150px" : "200px",
       }}
       draggable={false}
     >

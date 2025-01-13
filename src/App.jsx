@@ -19,6 +19,18 @@ function App() {
     requestAnimationFrame(raf);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(window.scrollY);
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   function Preview() {
     window.location.replace("https://imgur.com/a/P6vt0V5");
     return null;

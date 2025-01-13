@@ -23,7 +23,6 @@
 }
 
 .letter {
-  height: 26vmin;
   width: auto;
   -drag: none;
   user-select: none;
