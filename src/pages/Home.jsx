@@ -31,7 +31,7 @@ const Home = () => {
     };
 
     const updateHeight = () => {
-      setViewportHeight(window.innerHeight);
+      setViewportHeight(window.outerHeight);
       updateDimensions();
     };
 
