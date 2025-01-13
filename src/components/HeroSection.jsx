@@ -11,7 +11,7 @@ import b from "../assets/b.png";
 import e from "../assets/e.png";
 import downarrow from "../assets/downarrow.png";
 
-const HeroSection = ({ boundingRef, viewportHeight}) => {
+const HeroSection = ({ boundingRef, viewportHeight }) => {
   const [isAtTop, setIsAtTop] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { scrollYProgress } = useScroll({});
@@ -68,8 +68,18 @@ const HeroSection = ({ boundingRef, viewportHeight}) => {
   }, []);
 
   return (
-    <section className="hero">
-      <div className="jacube-letters-bounding" ref={boundingRef}>
+    <section
+      className="hero"
+      style={{
+        height: viewportHeight * 0.85 + "px",
+        marginTop: viewportHeight * -0.15 + "px",
+      }}
+    >
+      <div
+        className="jacube-letters-bounding"
+        ref={boundingRef}
+        style={{ height: viewportHeight + "px" }}
+      >
         <div className="letter-container">
           <Letter
             src={j}
@@ -171,7 +181,10 @@ const HeroSection = ({ boundingRef, viewportHeight}) => {
           transition: { duration: 0.3, ease: "easeInOut" },
         }}
         onClick={scrollDown}
-        style={{ opacity: hasLoaded ? 1 - isAtTop / 100 : 0 }}
+        style={{
+          opacity: hasLoaded ? 1 - isAtTop / 100 : 0,
+          top: viewportHeight * 0.5 + "px",
+        }}
       />
     </section>
   );

@@ -1,7 +1,5 @@
 .hero {
-  height: 85dvh;
   width: auto;
-  margin-top: -15dvh;
   background: url("/banner.jpg") no-repeat center;
   background-size: cover;
   color: white;
@@ -12,7 +10,6 @@
   justify-content: center;
 }
 .jacube-letters-bounding {
-  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +56,6 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 50dvh;
   left: 49vw;
   z-index: 9999;
 }
