@@ -2,6 +2,8 @@ import { isMobile } from "react-device-detect";
 import { useState, useEffect } from "react";
 
 import "./SpotSection.css";
+import CustomSongEmbed from "./CustomSongEmbed";
+import JubileeCover from "../assets/JubileeCover.png";
 
 const SpotSection = ({
   songWidth,
@@ -12,6 +14,26 @@ const SpotSection = ({
   const [songDisplayWidth, setSongDisplayWidth] = useState(
     isMobile ? songWidth : "70vw"
   );
+
+  const songData = {
+    songUrl: "https://open.spotify.com/track/2igx5oDhXYUMP9KHPZC1BQ",
+    coverArt: JubileeCover,
+    songName: "Jubilee",
+    artists: [
+      {
+        name: "jacube",
+        url: "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ",
+      },
+      {
+        name: "Rachael Tang",
+        url: "https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V",
+      },
+      {
+        name: "Josh Yu",
+        url: "https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V",
+      },
+    ],
+  };
 
   useEffect(() => {
     setSongDisplayWidth(isMobile ? songWidth : "70vw");
@@ -48,10 +70,16 @@ const SpotSection = ({
           // borderRadius: "19px",
           marginBottom: "50px",
         }}
-        onMouseEnter={onIframeEnter}
-        onMouseLeave={onIframeLeave}
+        // onMouseEnter={onIframeEnter}
+        // onMouseLeave={onIframeLeave}
       >
-        <iframe
+        <CustomSongEmbed
+          songUrl={songData.songUrl}
+          coverArt={songData.coverArt}
+          songName={songData.songName}
+          artists={songData.artists}
+        />
+        {/* <iframe
           style={{
             borderRadius: "19px",
             marginBottom: "7px",
@@ -64,7 +92,7 @@ const SpotSection = ({
           allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-        ></iframe>
+        ></iframe> */}
         <iframe
           style={{
             borderRadius: "19px",
