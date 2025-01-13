@@ -19,12 +19,18 @@ function App() {
     requestAnimationFrame(raf);
   }, []);
 
+  function Preview() {
+    window.location.replace("https://imgur.com/a/P6vt0V5");
+    return null;
+  }
+
   return (
     <div className="App">
       <div className="main-content">
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route exact path="/preview" element={<Preview />} />
           </Routes>
         </Router>
       </div>
