@@ -8,13 +8,13 @@
   left: 0;
   background: #111416;
   color: white;
-  height: 10vh;
+  height: 75px;
   width: 100%;
 }
 
 .socials {
-  padding-right:2vh;
-  height: 5vh;
-  width: 5vh;
+  padding-right: 15px;
+  height: 40px;
+  width: auto;
   object-fit: contain;
 }

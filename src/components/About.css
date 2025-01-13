@@ -3,10 +3,6 @@
   src: url("@/fonts/BaskervilleOldFace.ttf") format("truetype");
 }
 
-.about {
-  height: 80vh;
-  
-}
 .logoAbout {
   max-height: 640px;
   max-width: 640px;
@@ -24,27 +20,27 @@
 }
 
 .custom-container {
-  margin-top: 3vh;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  margin-bottom:10vh;
+  margin-bottom: 30px;
 }
 
-.textblob{
-  margin:4vw;
+.textblob {
+  margin: 4vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
 }
-.header{
+.header {
   font-size: 15vmin;
   margin-bottom: 0px;
 }
-.subheader{
+.subheader {
   font-size: 5vmin;
-  margin-top:-1vh;
+  margin-top: -20px;
   font-weight: 1000;
   line-height: 95%;
-  margin-bottom: 3vh;
+  margin-bottom: 20px;
 }
