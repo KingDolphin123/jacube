@@ -3,13 +3,7 @@ import { isMobile } from "react-device-detect";
 
 import "./SectionTitle.css";
 
-const SectionTitle = ({
-  title,
-  direction,
-  spotSectionHeight,
-  songWidth,
-  viewportHeight,
-}) => {
+const SectionTitle = ({ title, direction, spotSectionHeight, songWidth }) => {
   const [yScroll, setyScroll] = useState(0);
 
   useEffect(() => {
@@ -51,7 +45,7 @@ const SectionTitle = ({
             }px)`,
           }}
         >
-          {viewportHeight}
+          {title}
         </div>
       </div>
     </div>

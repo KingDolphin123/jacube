@@ -11,13 +11,13 @@ import b from "../assets/b.png";
 import e from "../assets/e.png";
 import downarrow from "../assets/downarrow.png";
 
-const HeroSection = ({ boundingRef, viewportHeight }) => {
+const HeroSection = ({ boundingRef }) => {
   const [isAtTop, setIsAtTop] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { scrollYProgress } = useScroll({});
 
   const scrollDown = () => {
-    const scrollDistance = 410;
+    const scrollDistance = 700;
     const scrollDuration = 1300;
 
     const start = window.scrollY;

@@ -13,7 +13,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "120vh",
+          top: "53rem",
           left: "3vw",
           height: "2vmax",
         }}
@@ -24,7 +24,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "125vh",
+          top: "55.2rem",
           right: "6vw",
           height: "3vmax",
         }}
@@ -35,7 +35,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "160vh",
+          top: "80.7rem",
           right: "2vw",
           height: "1.5vmax",
         }}
@@ -46,7 +46,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "180vh",
+          top: "89.5rem",
           left: "4vw",
           height: "2vmax",
         }}
@@ -57,7 +57,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "230vh",
+          top: "111.6rem",
           right: "4vw",
           height: "2.5vmax",
         }}
@@ -68,7 +68,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "220vh",
+          top: "117.2rem",
           left: "5vw",
           height: "3.5vmax",
         }}
@@ -79,7 +79,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "290vh",
+          top: "147.1rem",
           left: "5vw",
           height: "2.25vmax",
         }}
@@ -90,7 +90,7 @@ const PageBuddies = () => {
         style={{
           zIndex: 15,
           position: "absolute",
-          top: "270vh",
+          top: "139.3rem",
           right: "7vw",
           height: "2vmax",
         }}
