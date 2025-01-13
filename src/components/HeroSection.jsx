@@ -71,14 +71,14 @@ const HeroSection = ({ boundingRef, viewportHeight }) => {
     <section
       className="hero"
       style={{
-        height: viewportHeight * 0.85 + "px",
-        marginTop: viewportHeight * -0.15 + "px",
+        height: "50rem",
+        marginTop: "-3rem",
       }}
     >
       <div
         className="jacube-letters-bounding"
         ref={boundingRef}
-        style={{ height: viewportHeight + "px" }}
+        style={{ height: "40rem" }}
       >
         <div className="letter-container">
           <Letter
@@ -183,7 +183,7 @@ const HeroSection = ({ boundingRef, viewportHeight }) => {
         onClick={scrollDown}
         style={{
           opacity: hasLoaded ? 1 - isAtTop / 100 : 0,
-          top: viewportHeight * 0.5 + "px",
+          top: "25rem",
         }}
       />
     </section>
