@@ -7,12 +7,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageBuddies from "../components/PageBuddies";
 
-
 import SectionTitle from "../components/SectionTitle";
 import About from "../components/About";
 import Cursor from "../components/Cursor";
 
 const Home = () => {
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const boundingRef = useRef(null);
   const [boundingWidth, setBoundingWidth] = useState(0);
   const [spotSectionHeight, setSpotSectionHeight] = useState(0);
@@ -30,15 +30,20 @@ const Home = () => {
       }
     };
 
+    const updateHeight = () => {
+      setViewportHeight(window.innerHeight);
+      updateDimensions();
+    };
+
     updateDimensions();
 
     const resizeObserver = new ResizeObserver(updateDimensions);
     if (boundingRef.current) resizeObserver.observe(boundingRef.current);
 
-    window.addEventListener("resize", updateDimensions);
+    window.addEventListener("resize", updateHeight);
 
     return () => {
-      window.removeEventListener("resize", updateDimensions);
+      window.removeEventListener("resize", updateHeight);
       resizeObserver.disconnect();
     };
   }, []);
@@ -49,7 +54,7 @@ const Home = () => {
   return (
     <div className="home">
       <Navbar />
-      <HeroSection boundingRef={boundingRef} />
+      <HeroSection boundingRef={boundingRef} viewportHeight={viewportHeight} />
       <SectionTitle
         title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"
         direction="left"

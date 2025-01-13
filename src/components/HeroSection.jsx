@@ -11,7 +11,7 @@ import b from "../assets/b.png";
 import e from "../assets/e.png";
 import downarrow from "../assets/downarrow.png";
 
-const HeroSection = ({ boundingRef }) => {
+const HeroSection = ({ boundingRef, viewportHeight}) => {
   const [isAtTop, setIsAtTop] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { scrollYProgress } = useScroll({});
