@@ -60,12 +60,14 @@ const Home = () => {
         direction="left"
         spotSectionHeight={0}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
       />
       <SectionTitle
         title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"
         direction="right"
         spotSectionHeight={0}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
       />
 
       <SpotSection
@@ -79,12 +81,14 @@ const Home = () => {
         direction="right"
         spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
       />
       <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="left"
         spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
       />
       <About songWidth={boundingWidth} />
       {!isMobile && <Cursor isIframeHovered={isIframeHovered} />}
