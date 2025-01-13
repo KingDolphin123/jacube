@@ -6,10 +6,7 @@ import CustomSongEmbed from "./CustomSongEmbed";
 import JubileeCover from "../assets/JubileeCover.png";
 import JubileeAcousticCover from "../assets/JubileeAcousticCover.png";
 
-const SpotSection = ({
-  songWidth,
-  spotSectionRef,
-}) => {
+const SpotSection = ({ songWidth, spotSectionRef }) => {
   const [songDisplayWidth, setSongDisplayWidth] = useState(
     isMobile ? songWidth : "70vw"
   );
@@ -85,6 +82,9 @@ const SpotSection = ({
           padding: "10px",
           // borderRadius: "19px",
           marginBottom: "50px",
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+          gap: "5px",
         }}
       >
         <CustomSongEmbed

@@ -12,13 +12,13 @@
   align-items: center;
   background: #18509d;
   padding: 12px;
-  border-radius: 19px;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+
 }
 
 .cover-art {
   width: 123px;
   height: 123px;
-  border-radius: 10px;
   transition: opacity 0.2s;
   box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
