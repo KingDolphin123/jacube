@@ -7,8 +7,6 @@ const SectionTitle = ({
   title,
   direction,
   spotSectionHeight,
-  songWidth,
-  viewportHeight,
 }) => {
   const [yScroll, setyScroll] = useState(0);
 
@@ -22,20 +20,12 @@ const SectionTitle = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [songDisplayWidth, setSongDisplayWidth] = useState(
-    isMobile ? songWidth : "100vw"
-  );
-
-  useEffect(() => {
-    setSongDisplayWidth(isMobile ? songWidth : "100vw");
-  }, [songWidth]);
-
   return (
     <div className="flexwrap">
       <div
         className="wrapper"
         style={{
-          width: songDisplayWidth,
+          width: "100vw",
           paddingLeft: "10px",
           paddingRight: "10px",
         }}

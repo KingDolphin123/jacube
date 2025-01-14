@@ -6,11 +6,7 @@ import CustomSongEmbed from "./CustomSongEmbed";
 import JubileeCover from "../assets/JubileeCover.png";
 import JubileeAcousticCover from "../assets/JubileeAcousticCover.png";
 
-const SpotSection = ({ songWidth, spotSectionRef }) => {
-  const [songDisplayWidth, setSongDisplayWidth] = useState(
-    isMobile ? songWidth : "70vw"
-  );
-
+const SpotSection = () => {
   const jubileeSongData = {
     songUrl: "https://open.spotify.com/track/2igx5oDhXYUMP9KHPZC1BQ",
     coverArt: JubileeCover,
@@ -54,10 +50,6 @@ const SpotSection = ({ songWidth, spotSectionRef }) => {
     ],
   };
 
-  useEffect(() => {
-    setSongDisplayWidth(isMobile ? songWidth : "70vw");
-  }, [songWidth]);
-
   const [yScroll, setyScroll] = useState(0);
 
   useEffect(() => {
@@ -78,11 +70,11 @@ const SpotSection = ({ songWidth, spotSectionRef }) => {
   }, []);
 
   return (
-    <div className="spot" ref={spotSectionRef}>
+    <div className="spot">
       <div
         className="songDisplay"
         style={{
-          width: songDisplayWidth,
+          width: "65vw",
           position: "relative",
           opacity: (yScroll - 350) / 250,
           border: "3px solid white",

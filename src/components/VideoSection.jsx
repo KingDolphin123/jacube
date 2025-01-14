@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { isMobile, isTablet } from "react-device-detect";
+import "./VideoSection.css";
 
 import backgroundvideo from "../assets/backgroundvideo.webm";
 
-const VideoSection = ({ initHeight, initWidth }) => {
+const VideoSection = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +31,29 @@ const VideoSection = ({ initHeight, initWidth }) => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
+
+  const getRandomPercentage = (min, max) => {
+    return Math.random() * (max - min) + min;
+  };
+
+  const generateRandomClipPath50 = () => {
+    const points = [
+      `${getRandomPercentage(30, 45)}% ${getRandomPercentage(30, 45)}%`,
+      `${getRandomPercentage(60, 70)}% ${getRandomPercentage(30, 45)}%`,
+      `${getRandomPercentage(60, 70)}% ${getRandomPercentage(60, 70)}%`,
+      `${getRandomPercentage(30, 45)}% ${getRandomPercentage(60, 70)}%`,
+    ];
+    return `polygon(${points.join(", ")})`;
+  };
+
+  useEffect(() => {
+    const randomClipPath = generateRandomClipPath50();
+    document.documentElement.style.setProperty(
+      "--random-clip-path",
+      randomClipPath
+    );
+  }, []);
+
   return (
     <div
       style={{
@@ -39,27 +63,20 @@ const VideoSection = ({ initHeight, initWidth }) => {
         overflow: "hidden",
       }}
     >
-      <video
-        ref={videoRef}
-        controls={false}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: "0.9",
-        }}
-      >
-        <source src={backgroundvideo} type="video/webm" />
-      </video>
+      <div className="mask-animation">
+        <video
+          ref={videoRef}
+          controls={false}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="video-reveal"
+        >
+          <source src={backgroundvideo} type="video/webm" />
+        </video>
+      </div>
     </div>
   );
 };

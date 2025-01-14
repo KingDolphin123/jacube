@@ -4,15 +4,7 @@ import { isMobile } from "react-device-detect";
 
 import jacubelogo from "../assets/about.jpg";
 
-const About = ({ songWidth }) => {
-  const [songDisplayWidth, setSongDisplayWidth] = useState(
-    isMobile ? songWidth : "70vw"
-  );
-
-  useEffect(() => {
-    setSongDisplayWidth(isMobile ? songWidth : "70vw");
-  }, [songWidth]);
-
+const About = () => {
   const [yScroll, setyScroll] = useState(0);
 
   useEffect(() => {
@@ -30,7 +22,7 @@ const About = ({ songWidth }) => {
       <div
         className="sticky-section"
         style={{
-          width: songDisplayWidth,
+          width: "65vw",
           flexDirection: isMobile ? "column" : "row",
           opacity: (yScroll - (isMobile ? 1000 : 1200)) / 250,
         }}

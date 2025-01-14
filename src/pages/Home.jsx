@@ -18,8 +18,6 @@ import Cursor from "../components/Cursor";
 
 const Home = () => {
   const boundingRef = useRef(null);
-  const [boundingWidth, setBoundingWidth] = useState(0);
-  const [spotSectionHeight, setSpotSectionHeight] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(
     document.documentElement.scrollTop
   );
@@ -30,12 +28,8 @@ const Home = () => {
 
   useEffect(() => {
     const updateDimensions = () => {
-      if (boundingRef.current) {
-        setBoundingWidth(boundingRef.current.offsetWidth);
-      }
-      if (spotSectionRef.current) {
-        setSpotSectionHeight(spotSectionRef.current.clientHeight);
-      }
+      // setBoundingWidth(boundingRef.current.offsetWidth);
+
       setinitHeight(window.innerHeight);
       setinitWidth(window.innerWidth);
     };
@@ -46,14 +40,10 @@ const Home = () => {
 
     updateDimensions();
 
-    const resizeObserver = new ResizeObserver(updateDimensions);
-    if (boundingRef.current) resizeObserver.observe(boundingRef.current);
-
     window.addEventListener("scroll", updateScrollY);
 
     return () => {
       window.removeEventListener("scroll", updateScrollY);
-      resizeObserver.disconnect();
     };
   }, []);
 
@@ -62,25 +52,23 @@ const Home = () => {
       <Navbar />
       <VideoSection initHeight={initHeight} initWidth={initWidth} />
       <DownArrow
-        initHeight={isTablet ? "800x" : isMobile ? "650px" : "800px"}
+        initHeight={isTablet ? "800x" : isMobile ? "650px" : "85vh"}
       />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
-      <SectionTitle
+      {/* <SectionTitle
         title="DONALD TRUMP AMONG US IMPOSTER SUSSY BAKA"
         direction="left"
         spotSectionHeight={-50}
-        songWidth={boundingWidth}
         viewportHeight={viewportHeight}
       />
       <SectionTitle
         title="DONALD TRUMP AMONG US IMPOSTER SUSSY BAKA"
         direction="right"
         spotSectionHeight={-50}
-        songWidth={boundingWidth}
         viewportHeight={viewportHeight}
-      />
+      /> */}
 
-      <SpotSection spotSectionRef={spotSectionRef} songWidth={boundingWidth} />
+      <SpotSection />
       {/* <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="right"
@@ -95,9 +83,9 @@ const Home = () => {
         songWidth={boundingWidth}
         viewportHeight={viewportHeight}
       /> */}
-      <About songWidth={boundingWidth} />
+      <About />
       {!isMobile && <Cursor />}
-      <PageBuddies />
+      {/* <PageBuddies /> */}
       <Footer />
     </div>
   );

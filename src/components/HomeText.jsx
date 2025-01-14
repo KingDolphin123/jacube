@@ -29,6 +29,8 @@ const HomeText = ({ initHeight, initWidth }) => {
           fontSize: "35vmin",
           lineHeight: isMobile ? ".9" : "1.2",
           whiteSpace: isMobile ? "normal" : "nowrap",
+          filter: "drop-shadow(0px 0px 7px rgba(255, 255, 255, 1))",
+
         }}
       >
         More Than
@@ -41,6 +43,8 @@ const HomeText = ({ initHeight, initWidth }) => {
           //   right: "10vw",
           fontSize: "35vmin",
           lineHeight: "40vmin",
+          filter: "drop-shadow(0px 0px 7px rgba(255, 255, 255, 1))",
+
         }}
       >
         Birds
