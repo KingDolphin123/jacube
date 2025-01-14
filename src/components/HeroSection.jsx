@@ -278,6 +278,8 @@ const Letter = ({
         rotateY: translateRotateY,
         height: isMobile ? "150px" : "200px",
         filter: "drop-shadow(0px 0px 40px rgba(255, 255, 255, 0.5))",
+        // filter: "box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.5)"
+
       }}
       draggable={false}
     >

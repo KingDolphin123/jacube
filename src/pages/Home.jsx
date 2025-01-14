@@ -49,13 +49,13 @@ const Home = () => {
       <SectionTitle
         title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"
         direction="left"
-        spotSectionHeight={0}
+        spotSectionHeight={-50}
         songWidth={boundingWidth}
       />
       <SectionTitle
         title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"
         direction="right"
-        spotSectionHeight={0}
+        spotSectionHeight={-50}
         songWidth={boundingWidth}
       />
 
