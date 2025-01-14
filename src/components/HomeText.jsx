@@ -37,7 +37,7 @@ const HomeText = ({ initHeight, initWidth }) => {
         style={{
           fontFamily: "'Vivaldi Italic', sans-serif",
           position: "absolute",
-          top: isMobile ? "100vmin" : "41vmin",
+          top: isMobile ? "95vmin" : "41vmin",
           //   right: "10vw",
           fontSize: "35vmin",
           lineHeight: "40vmin",

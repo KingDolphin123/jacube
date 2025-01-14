@@ -62,7 +62,7 @@ const Home = () => {
       <Navbar />
       <VideoSection initHeight={initHeight} initWidth={initWidth} />
       <DownArrow
-        initHeight={isTablet ? "800x" : isMobile ? "600px" : "800px"}
+        initHeight={isTablet ? "800x" : isMobile ? "650px" : "800px"}
       />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
       <SectionTitle
