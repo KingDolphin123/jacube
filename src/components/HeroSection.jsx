@@ -186,7 +186,6 @@ const HeroSection = ({ boundingRef }) => {
           opacity: hasLoaded ? 1 - isAtTop / 100 : 0,
           top: "25rem",
           filter: "drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.5))",
-
         }}
       />
     </section>
@@ -208,6 +207,8 @@ const Letter = ({
 }) => {
   const translateX = useTransform(scrollProgress, [0, 1], [0, xSpeed * 300]);
   const translateY = useTransform(scrollProgress, [0, 1], [0, ySpeed * 200]);
+  // const translateX = useTransform(scrollY, [0, 1], [0, xSpeed * 300]);
+  // const translateY = useTransform(scrollY, [0, 1], [0, ySpeed * 200]);
   const translateScale = useTransform(
     scrollProgress,
     [0, 0.25],
@@ -279,7 +280,6 @@ const Letter = ({
         height: isMobile ? "150px" : "200px",
         filter: "drop-shadow(0px 0px 40px rgba(255, 255, 255, 0.5))",
         // filter: "box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.5)"
-
       }}
       draggable={false}
     >

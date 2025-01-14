@@ -15,6 +15,7 @@ const Home = () => {
   const boundingRef = useRef(null);
   const [boundingWidth, setBoundingWidth] = useState(0);
   const [spotSectionHeight, setSpotSectionHeight] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(window.scrollY);
 
   const spotSectionRef = useRef(null);
 
@@ -27,20 +28,23 @@ const Home = () => {
         setSpotSectionHeight(spotSectionRef.current.clientHeight);
       }
     };
+    const updateScrollY = () => {
+      setViewportHeight(window.scrollY);
+      updateDimensions();
+    };
 
     updateDimensions();
 
     const resizeObserver = new ResizeObserver(updateDimensions);
     if (boundingRef.current) resizeObserver.observe(boundingRef.current);
 
-    window.addEventListener("resize", updateDimensions);
+    window.addEventListener("scroll", updateScrollY);
 
     return () => {
-      window.removeEventListener("resize", updateDimensions);
+      window.removeEventListener("scroll", updateScrollY);
       resizeObserver.disconnect();
     };
   }, []);
-
 
   return (
     <div className="home">
@@ -51,29 +55,33 @@ const Home = () => {
         direction="left"
         spotSectionHeight={-50}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
       />
       <SectionTitle
         title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"
         direction="right"
         spotSectionHeight={-50}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
+
       />
 
-      <SpotSection
-        spotSectionRef={spotSectionRef}
-        songWidth={boundingWidth}
-      />
+      <SpotSection spotSectionRef={spotSectionRef} songWidth={boundingWidth} />
       <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="right"
         spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
+
       />
       <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="left"
         spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
+        viewportHeight={viewportHeight}
+
       />
       <About songWidth={boundingWidth} />
       {!isMobile && <Cursor />}
