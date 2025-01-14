@@ -7,18 +7,24 @@ const VideoSection = ({ initHeight, initWidth }) => {
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible" && videoRef.current) {
-        if (videoRef.current.paused) {
-          videoRef.current.play().catch(() => {
-            console.log("Retrying video playback...");
-            setTimeout(() => videoRef.current.play(), 500);
-          });
-        }
+        videoRef.current.load();
+        videoRef.current
+          .play()
+          .catch(() => setTimeout(() => videoRef.current.play(), 500));
       }
     };
 
+    const handleFocus = () => {
+      if (videoRef.current && videoRef.current.paused) {
+        videoRef.current.play().catch(() => console.log("Focus retry failed."));
+      }
+    };
+
+    window.addEventListener("focus", handleFocus);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
+      window.removeEventListener("focus", handleFocus);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
@@ -44,8 +50,8 @@ const VideoSection = ({ initHeight, initWidth }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "100vw",
-          height: "100vh",
+          width: "100%",
+          height: "100%",
           objectFit: "cover",
           opacity: "0.9",
         }}
