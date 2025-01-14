@@ -1,5 +1,5 @@
 import { useScroll, useTransform, motion } from "framer-motion";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 
 const HomeText = ({ initHeight, initWidth }) => {
   return (

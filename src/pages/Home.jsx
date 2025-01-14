@@ -3,7 +3,7 @@ import DownArrow from "../components/DownArrow";
 import HomeText from "../components/HomeText";
 
 import { useEffect, useRef, useState } from "react";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import "./Home.css";
 import SpotSection from "../components/SpotSection";
 import Navbar from "../components/Navbar";
@@ -61,7 +61,9 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <VideoSection initHeight={initHeight} initWidth={initWidth} />
-      <DownArrow initHeight={`800px`} />
+      <DownArrow
+        initHeight={isTablet ? "800x" : isMobile ? "600px" : "800px"}
+      />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
       <SectionTitle
         title="DONALD TRUMP AMONG US IMPOSTER SUSSY BAKA"
