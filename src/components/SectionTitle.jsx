@@ -51,7 +51,7 @@ const SectionTitle = ({
             }px)`,
           }}
         >
-          {viewportHeight}
+          {title}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
 
@@ -16,6 +16,7 @@ const HeroSection = ({ boundingRef }) => {
   const [isAtTop, setIsAtTop] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { scrollYProgress } = useScroll({});
+  const scrollY = useSpring(scrollYProgress, { stiffness: 50, damping: 15 });
 
   const scrollDown = () => {
     const scrollDistance = 700;
@@ -59,21 +60,16 @@ const HeroSection = ({ boundingRef }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.visualViewport
-        ? window.visualViewport.pageTop
-        : window.scrollY; // Fallback to window.scrollY if visualViewport is unavailable
+      const scrollPosition = window.scrollY;
       setIsAtTop(scrollPosition);
+      console.log(window.scrollY);
     };
 
-    // Listen to both scroll and resize events
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll); // Also track resize for changes in viewport height
     setHasLoaded(true);
 
-    // Cleanup listeners on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -95,7 +91,7 @@ const HeroSection = ({ boundingRef }) => {
             src={j}
             alt="J"
             letterTitle={"letter letter-j"}
-            scrollProgress={scrollYProgress}
+            scrollProgress={scrollY}
             xSpeed={-6}
             ySpeed={6}
             scale={10}
@@ -109,7 +105,7 @@ const HeroSection = ({ boundingRef }) => {
             src={a}
             alt="A"
             letterTitle={"letter letter-a"}
-            scrollProgress={scrollYProgress}
+            scrollProgress={scrollY}
             xSpeed={-3}
             ySpeed={9.5}
             scale={30}
@@ -123,7 +119,7 @@ const HeroSection = ({ boundingRef }) => {
             src={c}
             alt="C"
             letterTitle={"letter letter-c"}
-            scrollProgress={scrollYProgress}
+            scrollProgress={scrollY}
             xSpeed={-1}
             ySpeed={10}
             scale={25}
@@ -137,7 +133,7 @@ const HeroSection = ({ boundingRef }) => {
             src={u}
             alt="U"
             letterTitle={"letter letter-u"}
-            scrollProgress={scrollYProgress}
+            scrollProgress={scrollY}
             xSpeed={2}
             ySpeed={8}
             scale={15}
@@ -151,7 +147,7 @@ const HeroSection = ({ boundingRef }) => {
             src={b}
             alt="B"
             letterTitle={"letter letter-b"}
-            scrollProgress={scrollYProgress}
+            scrollProgress={scrollY}
             xSpeed={2}
             ySpeed={11}
             scale={20}
@@ -165,7 +161,7 @@ const HeroSection = ({ boundingRef }) => {
             src={e}
             alt="E"
             letterTitle={"letter letter-e"}
-            scrollProgress={scrollYProgress}
+            scrollProgress={scrollY}
             xSpeed={5}
             ySpeed={5}
             scale={20}
@@ -188,13 +184,17 @@ const HeroSection = ({ boundingRef }) => {
         }}
         whileHover={{
           scale: 1.5,
-          transition: { duration: 0.3, ease: "easeInOut" },
+          transition: {
+            type: "spring",
+            stiffness: 190,
+            damping: 10,
+            duration: 0.4,
+          },
         }}
         onClick={scrollDown}
         style={{
-          opacity: hasLoaded ? 1 - isAtTop / 100 : 0,
+          opacity: hasLoaded ? 1 - isAtTop / 250 : 0,
           top: "25rem",
-          filter: "drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.5))",
         }}
       />
     </section>
@@ -216,16 +216,14 @@ const Letter = ({
 }) => {
   const translateX = useTransform(scrollProgress, [0, 1], [0, xSpeed * 300]);
   const translateY = useTransform(scrollProgress, [0, 1], [0, ySpeed * 200]);
-  // const translateX = useTransform(scrollY, [0, 1], [0, xSpeed * 300]);
-  // const translateY = useTransform(scrollY, [0, 1], [0, ySpeed * 200]);
-  const translateScale = useTransform(
-    scrollProgress,
-    [0, 0.25],
-    [1, scale / 100]
-  );
+  // const translateScale = useTransform(
+  //   scrollProgress,
+  //   [0, 0.25],
+  //   [1, scale / 100]
+  // );
   const translateOpacity = useTransform(
     scrollProgress,
-    [0, 0.45],
+    [0, 0.3],
     [1, opacity / 100]
   );
   const translateRotateX = useTransform(
@@ -263,7 +261,12 @@ const Letter = ({
           rotateX: 0,
           rotateY: 0,
         }),
-        ...(isAtTop === 0 && { scale: [1, 0.95, 1] }),
+        scale: [1, 0.9, 1],
+        filter: [
+          "drop-shadow(0px 0px 70px rgba(255, 255, 255, 0.6))",
+          "drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.8))", // animate drop shadow
+          "drop-shadow(0px 0px 70px rgba(255, 255, 255, 0.6))",
+        ],
       }}
       transition={{
         ...(isAtTop === 0 ? { duration: 0.8, ease: [0.5, 0, 0.2, 1] } : {}),
@@ -271,10 +274,16 @@ const Letter = ({
         ...(isAtTop === 0
           ? {
               scale: {
-                duration: 2,
+                duration: 4,
                 ease: "easeInOut",
                 repeat: Infinity,
                 delay: staggerDelay,
+              },
+              filter: {
+                duration: 4, // Infinite loop duration for drop shadow animation
+                ease: "easeInOut",
+                repeat: Infinity, // Infinite loop for drop shadow
+                delay: staggerDelay + 0.15, // Delay for staggered effect
               },
             }
           : {}),
@@ -282,7 +291,7 @@ const Letter = ({
       style={{
         x: translateX,
         y: translateY,
-        scale: translateScale,
+        // scale: translateScale,
         opacity: translateOpacity,
         rotateX: translateRotateX,
         rotateY: translateRotateY,
