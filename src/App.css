@@ -27,3 +27,7 @@ body {
   font-weight: normal;
   src: url("/fonts/VIVALDII.woff") format("woff");
 }
+
+video::-webkit-media-controls {
+  display: none !important;
+}

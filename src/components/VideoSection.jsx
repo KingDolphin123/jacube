@@ -13,12 +13,10 @@ const VideoSection = ({ initHeight, initWidth }) => {
     >
       <video
         controls={false}
-        autoPlay="autoPlay"
-        loop="loop"
+        autoPlay
+        loop
         muted
-        defaultMuted
-        playsinline
-        oncontextmenu="return false;"
+        playsInline
         preload="auto"
         style={{
           position: "absolute",
