@@ -264,7 +264,7 @@ const Letter = ({
         scale: [1, 0.9, 1],
         filter: [
           "drop-shadow(0px 0px 70px rgba(255, 255, 255, 0.6))",
-          "drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.8))", // animate drop shadow
+          "drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.8))",
           "drop-shadow(0px 0px 70px rgba(255, 255, 255, 0.6))",
         ],
       }}
@@ -274,16 +274,16 @@ const Letter = ({
         ...(isAtTop === 0
           ? {
               scale: {
-                duration: 4,
+                duration: 3,
                 ease: "easeInOut",
                 repeat: Infinity,
                 delay: staggerDelay,
               },
               filter: {
-                duration: 4, // Infinite loop duration for drop shadow animation
+                duration: 3,
                 ease: "easeInOut",
-                repeat: Infinity, // Infinite loop for drop shadow
-                delay: staggerDelay + 0.15, // Delay for staggered effect
+                repeat: Infinity,
+                delay: staggerDelay + 0.15,
               },
             }
           : {}),
