@@ -35,7 +35,7 @@ const VideoSection = ({ initHeight, initWidth }) => {
       style={{
         position: "relative",
         width: "100vw",
-        height: isMobile ? "2868px" : "100vh",
+        height: isMobile ? "1024px" : "100vh",
         overflow: "hidden",
       }}
     >

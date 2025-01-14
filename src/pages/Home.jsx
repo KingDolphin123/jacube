@@ -61,7 +61,7 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <VideoSection initHeight={initHeight} initWidth={initWidth} />
-      <DownArrow initHeight={`${initHeight - 100}px`} />
+      <DownArrow initHeight={`800px`} />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
       <SectionTitle
         title="DONALD TRUMP AMONG US IMPOSTER SUSSY BAKA"

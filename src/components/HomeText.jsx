@@ -27,7 +27,7 @@ const HomeText = ({ initHeight, initWidth }) => {
           //   top: "50%", // Center vertically
           //   left: "50%",
           fontSize: "35vmin",
-          lineHeight: isMobile ? "1" : "1.2",
+          lineHeight: isMobile ? ".9" : "1.2",
           whiteSpace: isMobile ? "normal" : "nowrap",
         }}
       >
