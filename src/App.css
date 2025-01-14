@@ -49,7 +49,7 @@ body {
 .navbarmask {
   position: fixed;
   width: 200%;
-  height: 20%;
+  height: 200px;
   mix-blend-mode: difference; /* Dynamically blend the SVG with elements underneath */
   pointer-events: none;
   z-index: 10; /* Ensure it doesn't block interactions */

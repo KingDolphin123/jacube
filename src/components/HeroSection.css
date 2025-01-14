@@ -3,6 +3,7 @@
   background: url("/banner.jpg") no-repeat center;
   background-size: cover;
   color: white;
+  /* margin-top:-75px; */
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
@@ -53,7 +54,6 @@
 }
 
 .arrow {
-  margin-top:75px;
   height: 4vmin;
   width: auto;
   position: absolute;
