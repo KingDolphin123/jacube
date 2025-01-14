@@ -13,8 +13,6 @@ import "./App.css";
 
 function App() {
   const { scrollY } = useScroll();
-
-  const opacity = useTransform(scrollY, [500, 650], [0, 1]);
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -35,19 +33,7 @@ function App() {
   return (
     <div className="App">
       <div className="main-content">
-        {/* <motion.nav
-
-        > */}
         <Scroller />
-        <motion.nav
-          className="navbarroot"
-          style={{
-            opacity: opacity,
-          }}
-        >
-          <img src={jacubelogo} className="navbarmask" alt="Logo" />
-        </motion.nav>
-
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

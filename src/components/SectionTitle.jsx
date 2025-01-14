@@ -23,11 +23,11 @@ const SectionTitle = ({
   }, []);
 
   const [songDisplayWidth, setSongDisplayWidth] = useState(
-    isMobile ? songWidth : "70vw"
+    isMobile ? songWidth : "100vw"
   );
 
   useEffect(() => {
-    setSongDisplayWidth(isMobile ? songWidth : "70vw");
+    setSongDisplayWidth(isMobile ? songWidth : "100vw");
   }, [songWidth]);
 
   return (

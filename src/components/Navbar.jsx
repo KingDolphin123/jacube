@@ -5,24 +5,15 @@ import "./Navbar.css";
 import jacubelogo from "../assets/jacubefull.svg";
 
 const Navbar = () => {
-  const { scrollY } = useScroll();
-
-  const navbarY = useTransform(scrollY, [200, 350], [-100, 0]);
-  const opacity = useTransform(scrollY, [200, 350], [0, 1]);
-
   return (
-    <motion.nav
+    <div
+      className="navbarroot"
       style={{
-        y: navbarY,
-        opacity: opacity,
-        zIndex: 10,
+        opacity: 1,
       }}
-      className="navbar"
     >
-
-      <img src={jacubelogo} className="jacubelogo" alt="Logo" />
-    </motion.nav>
-    
+      <img src={jacubelogo} className="navbarmask" alt="Logo" />
+    </div>
   );
 };
 

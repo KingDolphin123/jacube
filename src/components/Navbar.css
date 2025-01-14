@@ -1,22 +1,20 @@
-.navbar {
-  position: fixed;
-  top: 0;
+.navbarroot {
+  display: flex;
+  position: relative;
+
+  justify-content: center;
+  align-items: center;
+  top: 80px;
   left: 0;
   width: 100%;
   height: 75px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent; /* Ensure no background blocks the blending */
-  pointer-events: none; /* Prevent blocking interactions with elements below */
 }
-
-.jacubelogo {
-  height: 200%;
-  width: auto;
-  position: relative;
-  mix-blend-mode: difference; /* Dynamically blend the SVG with elements underneath */
+.navbarmask {
+  position: fixed;
+  width: 200%;
+  height: 200px;
+  mix-blend-mode: difference;
   pointer-events: none;
-  z-index: 10; /* Ensure it doesn't block interactions */
+  z-index: 10;
+  mix-blend-mode: difference;
 }
-
