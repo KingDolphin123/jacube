@@ -1,16 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import backgroundvideo from "../assets/backgroundvideo.webm";
 
-
 const VideoSection = ({ initHeight, initWidth }) => {
   const videoRef = useRef(null);
 
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible" && videoRef.current) {
-        videoRef.current.play().catch(() => {
-          console.log("Video playback failed on refocus.");
-        });
+        if (videoRef.current.paused) {
+          videoRef.current.play().catch(() => {
+            console.log("Retrying video playback...");
+            setTimeout(() => videoRef.current.play(), 500);
+          });
+        }
       }
     };
 
