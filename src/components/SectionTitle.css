@@ -10,18 +10,16 @@
   align-items: center;
   overflow: hidden;
   position: relative;
-  z-index: 1; 
+  z-index: 1;
   white-space: nowrap;
 }
 
-.flexwrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .text {
+  position: relative;
+
   font-size: 20vmin;
+  top:0;
+  height: 22vmin;
   font-family: "Baskerville Old Face", serif;
   text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
   z-index: 1;

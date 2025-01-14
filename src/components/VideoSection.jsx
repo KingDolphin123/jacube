@@ -1,11 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { isMobile, isTablet } from "react-device-detect";
 import "./VideoSection.css";
 
 import backgroundvideo from "../assets/backgroundvideo.webm";
 
 const VideoSection = () => {
+  const [yScroll, setyScroll] = useState(0);
+
   const videoRef = useRef(null);
+  const { scrollYProgress } = useScroll({});
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -54,6 +58,17 @@ const VideoSection = () => {
     );
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setyScroll(currentScrollY);
+      // console.log((currentScrollY - (isMobile ? 1000 : 750)) / 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div
       style={{
@@ -61,6 +76,7 @@ const VideoSection = () => {
         width: "100vw",
         height: isTablet ? "1024px" : isMobile ? "820px" : "100vh",
         overflow: "hidden",
+        opacity: -(yScroll - (isMobile ? 700 : 700)) / 100,
       }}
     >
       <div className="mask-animation">

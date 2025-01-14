@@ -55,13 +55,13 @@ const Home = () => {
         initHeight={isTablet ? "800x" : isMobile ? "650px" : "85vh"}
       />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
-      {/* <SectionTitle
-        title="DONALD TRUMP AMONG US IMPOSTER SUSSY BAKA"
+      <SectionTitle
+        title="MUSIC"
         direction="left"
-        spotSectionHeight={-50}
+        spotSectionHeight={-250}
         viewportHeight={viewportHeight}
       />
-      <SectionTitle
+      {/* <SectionTitle
         title="DONALD TRUMP AMONG US IMPOSTER SUSSY BAKA"
         direction="right"
         spotSectionHeight={-50}
@@ -69,14 +69,13 @@ const Home = () => {
       /> */}
 
       <SpotSection />
-      {/* <SectionTitle
-        title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
+      <SectionTitle
+        title="ABOUT"
         direction="right"
-        spotSectionHeight={spotSectionHeight + 250}
-        songWidth={boundingWidth}
+        spotSectionHeight={250}
         viewportHeight={viewportHeight}
       />
-      <SectionTitle
+      {/* <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
         direction="left"
         spotSectionHeight={spotSectionHeight + 250}

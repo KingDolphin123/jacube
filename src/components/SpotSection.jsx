@@ -80,7 +80,6 @@ const SpotSection = () => {
           border: "3px solid white",
           padding: "10px",
           // borderRadius: "19px",
-          marginTop: "-15px",
 
           marginBottom: "125px",
           display: "grid",

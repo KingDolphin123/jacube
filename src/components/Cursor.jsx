@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./Cursor.css";
 
-const colors = ["#c32d27", "#f5c63f", "#457ec4", "#356fdb"];
+const colors = ["white", "white", "white", "black"];
 
 export default function GradientCursor({ isActive, isIframeHovered }) {
   const mouse = useRef({ x: 0, y: 0 });
