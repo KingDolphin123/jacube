@@ -1,7 +1,25 @@
-import { useScroll, useTransform, motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import backgroundvideo from "../assets/backgroundvideo.webm";
 
+
 const VideoSection = ({ initHeight, initWidth }) => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible" && videoRef.current) {
+        videoRef.current.play().catch(() => {
+          console.log("Video playback failed on refocus.");
+        });
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
   return (
     <div
       style={{
@@ -12,6 +30,7 @@ const VideoSection = ({ initHeight, initWidth }) => {
       }}
     >
       <video
+        ref={videoRef}
         controls={false}
         autoPlay
         loop
