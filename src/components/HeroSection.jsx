@@ -58,7 +58,7 @@ const HeroSection = ({ boundingRef }) => {
   };
 
   useEffect(() => {
-    const handleScroll = () => setIsAtTop(window.scrollY);
+    const handleScroll = () => setIsAtTop(document.documentElement.scrollTop);
 
     window.addEventListener("scroll", handleScroll);
     setHasLoaded(true);

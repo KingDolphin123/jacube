@@ -32,9 +32,8 @@
   -ms-user-select: none;
   z-index: 2;
 
+  will-change: transform, filter;
   transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
 }
 
 .letter-a {

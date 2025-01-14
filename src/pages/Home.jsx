@@ -15,7 +15,7 @@ const Home = () => {
   const boundingRef = useRef(null);
   const [boundingWidth, setBoundingWidth] = useState(0);
   const [spotSectionHeight, setSpotSectionHeight] = useState(0);
-  const [viewportHeight, setViewportHeight] = useState(window.scrollY);
+  const [viewportHeight, setViewportHeight] = useState(document.documentElement.scrollTop);
 
   const spotSectionRef = useRef(null);
 
@@ -29,7 +29,7 @@ const Home = () => {
       }
     };
     const updateScrollY = () => {
-      setViewportHeight(window.scrollY);
+      setViewportHeight(document.documentElement.scrollTop);
       updateDimensions();
     };
 
@@ -63,7 +63,6 @@ const Home = () => {
         spotSectionHeight={-50}
         songWidth={boundingWidth}
         viewportHeight={viewportHeight}
-
       />
 
       <SpotSection spotSectionRef={spotSectionRef} songWidth={boundingWidth} />
@@ -73,7 +72,6 @@ const Home = () => {
         spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
         viewportHeight={viewportHeight}
-
       />
       <SectionTitle
         title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
@@ -81,7 +79,6 @@ const Home = () => {
         spotSectionHeight={spotSectionHeight + 250}
         songWidth={boundingWidth}
         viewportHeight={viewportHeight}
-
       />
       <About songWidth={boundingWidth} />
       {!isMobile && <Cursor />}
