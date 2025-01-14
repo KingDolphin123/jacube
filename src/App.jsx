@@ -5,6 +5,8 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 
 import Home from "./pages/Home";
+import Scroller from "./components/Scroller";
+
 import jacubelogo from "./assets/jacubefull.svg";
 
 import "./App.css";
@@ -36,6 +38,7 @@ function App() {
         {/* <motion.nav
 
         > */}
+        <Scroller />
         <motion.nav
           className="navbarroot"
           style={{

@@ -84,11 +84,13 @@ const SpotSection = ({ songWidth, spotSectionRef }) => {
         style={{
           width: songDisplayWidth,
           position: "relative",
-          opacity: (yScroll - 350) / 250 ,
+          opacity: (yScroll - 350) / 250,
           border: "3px solid white",
           padding: "10px",
           // borderRadius: "19px",
-          marginBottom: "50px",
+          marginTop: "-15px",
+
+          marginBottom: "125px",
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
           gap: "5px",
