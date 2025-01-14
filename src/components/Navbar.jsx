@@ -2,7 +2,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 import "./Navbar.css";
 
-import jacubelogo from "../assets/jacubefull.png";
+import jacubelogo from "../assets/jacubefull.svg";
 
 const Navbar = () => {
   const { scrollY } = useScroll();
@@ -15,18 +15,14 @@ const Navbar = () => {
       style={{
         y: navbarY,
         opacity: opacity,
-        zIndex: 3,
+        zIndex: 10,
       }}
       className="navbar"
     >
-      <img
-        src={jacubelogo}
-        className="jacubelogo"
-        style={{
-          zIndex: 15,
-        }}
-      />
+
+      <img src={jacubelogo} className="jacubelogo" alt="Logo" />
     </motion.nav>
+    
   );
 };
 

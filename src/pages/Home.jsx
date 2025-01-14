@@ -48,7 +48,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Navbar />
+      {/* <Navbar /> */}
       <HeroSection boundingRef={boundingRef} />
       <SectionTitle
         title="MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC MUSIC"

@@ -53,10 +53,9 @@
 }
 
 .arrow {
+  margin-top:75px;
   height: 4vmin;
   width: auto;
-  display: flex;
-  justify-content: center;
   position: absolute;
   left: 49vw;
   z-index: 9999;

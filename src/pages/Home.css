@@ -1,3 +1,4 @@
 .home {
   padding: 20px;
+  background: transparent; /* Transparent to allow SVG blending */
 }

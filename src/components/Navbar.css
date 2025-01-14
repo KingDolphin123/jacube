@@ -1,19 +1,22 @@
 .navbar {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  top: 0;
-  left: 0;
-  background: #111416;
-  color: white;
-  height: 75px;
-  width: 100%;
+  background: transparent; /* Ensure no background blocks the blending */
+  pointer-events: none; /* Prevent blocking interactions with elements below */
 }
 
 .jacubelogo {
-  height: 50%;
+  height: 200%;
   width: auto;
-  position: absolute;
+  position: relative;
+  mix-blend-mode: difference; /* Dynamically blend the SVG with elements underneath */
+  pointer-events: none;
+  z-index: 10; /* Ensure it doesn't block interactions */
 }
+

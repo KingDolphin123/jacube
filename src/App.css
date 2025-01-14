@@ -9,14 +9,49 @@ body {
   background-color: #111416;
 }
 
-.video-container {
+.app {
+  position: relative;
+  z-index: 2; /* Content appears below the mask */
+  padding: 20px;
+  background: white; /* The masked area will reveal this */
+}
+
+.mask-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask-image: url("./assets/jacubefull.svg"); /* Path to your SVG */
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain; /* Adjust size as needed */
+  -webkit-mask-image: url("./assets/jacubefull.svg"); /* For WebKit browsers */
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  background: white; /* Color that the mask will show */
+  z-index: 100; /* Ensure it’s above all content */
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.navbarroot {
   display: flex;
+  position: relative;
+
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 75px;
 }
-.intro-video {
-  height: auto;
-  width: 100vmin;
-  position: relative;
+.navbarmask {
+  position: fixed;
+  width: 200%;
+  height: 20%;
+  mix-blend-mode: difference; /* Dynamically blend the SVG with elements underneath */
+  pointer-events: none;
+  z-index: 10; /* Ensure it doesn't block interactions */
+  mix-blend-mode: difference;
 }
