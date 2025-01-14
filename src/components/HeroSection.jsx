@@ -58,13 +58,22 @@ const HeroSection = ({ boundingRef }) => {
   };
 
   useEffect(() => {
-    const handleScroll = () => setIsAtTop(document.documentElement.scrollTop);
+    const handleScroll = () => {
+      const scrollPosition = window.visualViewport
+        ? window.visualViewport.pageTop
+        : window.scrollY; // Fallback to window.scrollY if visualViewport is unavailable
+      setIsAtTop(scrollPosition);
+    };
 
+    // Listen to both scroll and resize events
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll); // Also track resize for changes in viewport height
     setHasLoaded(true);
 
+    // Cleanup listeners on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
