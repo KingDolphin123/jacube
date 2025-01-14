@@ -18,8 +18,7 @@ export default function ScrollLinked() {
         right: 0,
         height: 10,
         originX: 0,
-        backgroundColor:"white",
-        mixBlendMode: "difference",
+        backgroundColor:"#E8E8E8",
         zIndex: 10,
       }}
     />
