@@ -13,7 +13,7 @@ const VideoSection = ({ initHeight, initWidth }) => {
     >
       <video
         controls={false}
-        autoplay="autoplay"
+        autoPlay="autoPlay"
         loop="loop"
         muted
         defaultMuted
