@@ -10,6 +10,7 @@ const CustomSongEmbed = ({ songUrl, coverArt, songName, artists }) => {
           src={coverArt}
           alt={`${songName} cover`}
           className="cover-art"
+          loading="lazy"
           onClick={() => window.open(songUrl, "_blank")}
         />
       </a>

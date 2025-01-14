@@ -61,9 +61,16 @@ const SpotSection = ({ songWidth, spotSectionRef }) => {
   const [yScroll, setyScroll] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setyScroll(currentScrollY);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setyScroll(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -77,7 +84,7 @@ const SpotSection = ({ songWidth, spotSectionRef }) => {
         style={{
           width: songDisplayWidth,
           position: "relative",
-          opacity: (yScroll - 350) / 100,
+          opacity: (yScroll - 350) / 250 ,
           border: "3px solid white",
           padding: "10px",
           // borderRadius: "19px",

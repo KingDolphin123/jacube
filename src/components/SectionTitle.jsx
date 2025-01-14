@@ -37,7 +37,7 @@ const SectionTitle = ({ title, direction, spotSectionHeight, songWidth }) => {
         <div
           className="text"
           style={{
-            opacity: (yScroll - spotSectionHeight - 25) / 100,
+            opacity: (yScroll - spotSectionHeight - 25) / 250,
             transform: `translateX(${
               direction == "left"
                 ? (-yScroll - spotSectionHeight) * 1.4 + 500
