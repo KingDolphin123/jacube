@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import downarrow from "../assets/downarrow.png";
+import { isMobile } from "react-device-detect";
 
 const DownArrow = ({ initHeight }) => {
   const [isAtTop, setIsAtTop] = useState(0);
@@ -88,7 +89,7 @@ const DownArrow = ({ initHeight }) => {
           height: "2rem",
           width: "auto",
           position: "absolute",
-          left: "48.5vw",
+          left: isMobile ? "43.5vw" : "48.5vw",
           zIndex: "9999",
           mixBlendMode: "difference",
           filter: "drop-shadow(0px 0px 5px rgba(255, 255, 255, 1))",

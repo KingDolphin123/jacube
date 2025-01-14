@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from "react";
+import { isMobile } from "react-device-detect";
+
 import backgroundvideo from "../assets/backgroundvideo.webm";
 
 const VideoSection = ({ initHeight, initWidth }) => {
@@ -33,7 +35,7 @@ const VideoSection = ({ initHeight, initWidth }) => {
       style={{
         position: "relative",
         width: "100vw",
-        height: "100vh",
+        height: isMobile ? "2868px" : "100vh",
         overflow: "hidden",
       }}
     >
