@@ -14,6 +14,14 @@ const Footer = () => {
       }}
       className="footer"
     >
+      <h1
+        style={{
+          paddingRight: "3px",
+          fontSize: "1rem",
+        }}
+      >
+        Check out the source code! {"-> "}{" "}
+      </h1>
       <a
         href="https://github.com/KingDolphin123/jacube"
         target="_blank"

@@ -1,7 +1,13 @@
 import "./About.css";
 import { useState, useEffect, useRef } from "react";
 import { isMobile } from "react-device-detect";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useInView,
+} from "framer-motion";
 
 import jacubelogo from "../assets/about.jpg";
 
@@ -20,6 +26,9 @@ const About = () => {
 
   const rotate = useTransform(scrollYProgress, [0.1, 0.4], ["8deg", "0deg"]);
   const smoothRotate = useSpring(rotate, { stiffness: 150, damping: 30 });
+
+  const headerRef = useRef(null);
+  const isInView = useInView(headerRef, { once: false, amount: 0.5 });
 
   return (
     <div className="custom-container">
@@ -42,7 +51,27 @@ const About = () => {
           }}
         />
         <div className="textblob">
-          <div className="header">Hi!</div>
+          <div style={{ display: "inline-block", textAlign: "left", marginLeft: "-.2vw" }}>
+            <motion.div
+              className="header"
+              ref={headerRef}
+              animate={
+                isInView
+                  ? {
+                      rotate: [0, 15, -15, 10, -10, 5, -5, 0],
+                    }
+                  : { rotate: 0 }
+              }
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              style={{
+                display: "inline-block",
+                position: "relative",
+                textAlign: "left",
+              }}
+            >
+              Hi!
+            </motion.div>
+          </div>
           <div className="subheader">i'm jacob</div>
           <div className="textbody">
             I've been involved with music for as long as I can remember. Started
