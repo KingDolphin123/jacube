@@ -3,6 +3,7 @@ import { isMobile, isTablet } from "react-device-detect";
 import "./VideoSection.css";
 
 import backgroundvideo from "../assets/backgroundvideo.webm";
+import birdposter from "../assets/birdposter.png";
 
 const VideoSection = () => {
   const [yScroll, setyScroll] = useState(0);
@@ -113,6 +114,7 @@ const VideoSection = () => {
             playsInline
             preload="auto"
             className="video-reveal"
+            poster={birdposter}
           >
             <source src={backgroundvideo} type="video/webm" />
           </video>

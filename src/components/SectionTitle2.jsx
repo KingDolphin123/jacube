@@ -12,20 +12,19 @@ const SectionTitle2 = ({ title, header }) => {
 
   const titleY = useTransform(
     scrollYProgress,
-    [0, isMobile ? 0.75 : 0.6],
+    [0, isMobile ? 0.9 : 0.75],
     ["90%", "0%"]
   );
   const headerY = useTransform(
     scrollYProgress,
-    [0, isMobile ? 0.7 : 0.65],
+    [0, isMobile ? 0.8 : 0.65],
     ["500%", "0%"]
   );
   const opacityY = useTransform(
     scrollYProgress,
-    [0.2, isMobile ? 0.7 : 0.4],
+    [0.2, isMobile ? 0.6 : 0.4],
     ["0", "1"]
   );
-
   const maskPosition = useTransform(
     scrollYProgress,
     [0.3, isMobile ? 0.65 : 0.55],
@@ -51,7 +50,6 @@ const SectionTitle2 = ({ title, header }) => {
             position: "relative",
             color: "#252525",
             zIndex: "10",
-
           }}
         >
           <motion.span
@@ -63,7 +61,6 @@ const SectionTitle2 = ({ title, header }) => {
               backgroundPosition: maskPosition,
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-
             }}
           >
             {title}

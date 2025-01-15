@@ -6,7 +6,7 @@
 .logoAbout {
   max-height: 640px;
   max-width: 640px;
-  width: 90%;
+  width: 96%;
   height: auto;
 }
 .sticky-section {
@@ -27,7 +27,7 @@
 }
 
 .textblob {
-  margin: 4vw;
+  margin: 2%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
