@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Ensure the video stays within bounds */
+  overflow: hidden;
 }
 
 .video-reveal {
@@ -14,22 +14,34 @@
   height: 100%;
   object-fit: cover;
   opacity: 0.9;
-
-  /* Apply animation */
-  animation: revealVideo 1s cubic-bezier(.98,.02,1,.83) forwards;
+  animation: revealVideo 1.2s cubic-bezier(0.98, 0.02, 1, 0.83) forwards;
 }
 
 @keyframes revealVideo {
   0% {
-    /* Starts as a centered rectangle */
     clip-path: polygon(48% 48%, 56% 44%, 52% 52%, 44% 56%);
   }
   40% {
-    /* All corners start aligning closer to edges */
     clip-path: var(--random-clip-path);
   }
+  70% {
+    clip-path: var(--random-clip-path2);
+  }
   100% {
-    /* Fully expanded */
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
+}
+
+.text-mask-layer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  background: linear-gradient(
+    to bottom,
+    #111416 900%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 2; 
 }

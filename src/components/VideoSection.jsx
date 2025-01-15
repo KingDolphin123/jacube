@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { isMobile, isTablet } from "react-device-detect";
 import "./VideoSection.css";
 
@@ -9,7 +8,6 @@ const VideoSection = () => {
   const [yScroll, setyScroll] = useState(0);
 
   const videoRef = useRef(null);
-  const { scrollYProgress } = useScroll({});
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -36,25 +34,50 @@ const VideoSection = () => {
     };
   }, []);
 
-  const getRandomPercentage = (min, max) => {
-    return Math.random() * (max - min) + min;
+  const getRandomPercentage = (min, max, offset = 1) => {
+    return (Math.random() * (max - min) + min) * offset;
   };
 
-  const generateRandomClipPath50 = () => {
+  const generateRandomClipPath50 = (offset = 1) => {
     const points = [
-      `${getRandomPercentage(30, 45)}% ${getRandomPercentage(30, 45)}%`,
-      `${getRandomPercentage(60, 70)}% ${getRandomPercentage(30, 45)}%`,
-      `${getRandomPercentage(60, 70)}% ${getRandomPercentage(60, 70)}%`,
-      `${getRandomPercentage(30, 45)}% ${getRandomPercentage(60, 70)}%`,
+      `${getRandomPercentage(30, 45, offset)}% ${getRandomPercentage(
+        30,
+        45,
+        offset
+      )}%`,
+      `${getRandomPercentage(60, 70, offset)}% ${getRandomPercentage(
+        30,
+        45,
+        offset
+      )}%`,
+      `${getRandomPercentage(60, 70, offset)}% ${getRandomPercentage(
+        60,
+        70,
+        offset
+      )}%`,
+      `${getRandomPercentage(30, 45, offset)}% ${getRandomPercentage(
+        60,
+        70,
+        offset
+      )}%`,
     ];
     return `polygon(${points.join(", ")})`;
   };
 
   useEffect(() => {
-    const randomClipPath = generateRandomClipPath50();
+    const randomClipPath = generateRandomClipPath50(
+      Math.random() * (0.9 - 0.7) + 0.7
+    );
     document.documentElement.style.setProperty(
       "--random-clip-path",
       randomClipPath
+    );
+    const randomClipPath2 = generateRandomClipPath50(
+      Math.random() * (1.3 - 1.1) + 1.1
+    );
+    document.documentElement.style.setProperty(
+      "--random-clip-path2",
+      randomClipPath2
     );
   }, []);
 
@@ -62,7 +85,6 @@ const VideoSection = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setyScroll(currentScrollY);
-      // console.log((currentScrollY - (isMobile ? 1000 : 750)) / 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -70,29 +92,35 @@ const VideoSection = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100vw",
-        height: isTablet ? "1024px" : isMobile ? "820px" : "100vh",
-        overflow: "hidden",
-        opacity: -(yScroll - (isMobile ? 700 : 700)) / 100,
-      }}
-    >
-      <div className="mask-animation">
-        <video
-          ref={videoRef}
-          controls={false}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="video-reveal"
-        >
-          <source src={backgroundvideo} type="video/webm" />
-        </video>
+    <div>
+      <div
+        style={{
+          position: "relative",
+          width: "100vw",
+          height: isTablet ? "1024px" : isMobile ? "820px" : "100vh",
+          overflow: "hidden",
+          opacity: -(yScroll - (isMobile ? 700 : 700)) / 100,
+        }}
+      >
+        <div className="mask-animation">
+          <video
+            ref={videoRef}
+            controls={false}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="video-reveal"
+          >
+            <source src={backgroundvideo} type="video/webm" />
+          </video>
+        </div>
       </div>
+      <div
+        className="text-mask-layer"
+        // style={{ top: isTablet ? "1024px" : isMobile ? "820px" : "100vh" }}
+      ></div>
     </div>
   );
 };

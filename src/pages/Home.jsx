@@ -55,13 +55,13 @@ const Home = () => {
       <VideoSection initHeight={initHeight} initWidth={initWidth} />
       <DownArrow initHeight={isTablet ? "800x" : isMobile ? "650px" : "85vh"} />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
-      <SectionTitle2 title={"music"} header={"i like dolphins"} />
+      <SectionTitle2 title={"MUSIC"} header={"joyful noises"} />
       <SpotSection />
-      <SectionTitle2 title={"about"} header={"i reaaaaly like dolphins"} />
+      <SectionTitle2 title={"ABOUT"} header={"a little bit about me"} />
 
       <About />
       {!isMobile && <Cursor />}
-      <PageBuddies />
+      {/* <PageBuddies /> */}
       <Footer />
     </div>
   );
