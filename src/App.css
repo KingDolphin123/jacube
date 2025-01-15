@@ -3,10 +3,15 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Crostan Bold", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #111416;
+}
+
+h1 {
+  font-family: "Gotham Light", sans-serif;
+  margin: 0;
 }
 
 @font-face {
@@ -26,6 +31,30 @@ body {
   font-style: normal;
   font-weight: normal;
   src: url("/fonts/VIVALDII.woff") format("woff");
+}
+@font-face {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Gotham-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "Gotham Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Gotham-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "Crostan Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/crostan.bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Crostan Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/crostan.light.otf") format("opentype");
 }
 
 video::-webkit-media-controls {

@@ -1,10 +1,25 @@
 import React from "react";
 import "./CustomSongEmbed.css";
 import play from "../assets/play.png";
+import { useState, useEffect, useRef } from "react";
+import { isMobile } from "react-device-detect";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const CustomSongEmbed = ({ songUrl, coverArt, songName, artists }) => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const opacityY = useTransform(
+    scrollYProgress,
+    [0.05, isMobile ? 0.4 : 0.3],
+    ["0", "1"]
+  );
   return (
-    <div className="song-embed">
+    <motion.div className="song-embed" ref={ref} style={{ opacity: opacityY }}>
       <a href={songUrl} target="_blank" rel="noopener noreferrer">
         <img
           src={coverArt}
@@ -48,7 +63,7 @@ const CustomSongEmbed = ({ songUrl, coverArt, songName, artists }) => {
           Play on Spotify
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { isMobile } from "react-device-detect";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 import "./SpotSection.css";
 import CustomSongEmbed from "./CustomSongEmbed";
@@ -7,6 +8,8 @@ import JubileeCover from "../assets/JubileeCover.png";
 import JubileeAcousticCover from "../assets/JubileeAcousticCover.png";
 
 const SpotSection = () => {
+  const ref = useRef(null);
+
   const jubileeSongData = {
     songUrl: "https://open.spotify.com/track/2igx5oDhXYUMP9KHPZC1BQ",
     coverArt: JubileeCover,
@@ -50,38 +53,29 @@ const SpotSection = () => {
     ],
   };
 
-  const [yScroll, setyScroll] = useState(0);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
 
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setyScroll(window.scrollY);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const opacityY = useTransform(
+    scrollYProgress,
+    [0.05, isMobile ? 0.4 : 0.3],
+    ["0", "1"]
+  );
 
   return (
     <div className="spot">
-      <div
+      <motion.div
+        ref={ref}
         className="songDisplay"
         style={{
           width: "65vw",
           position: "relative",
-          opacity: (yScroll - 350) / 250,
           border: "3px solid white",
           padding: "10px",
-          // borderRadius: "19px",
-
-          marginBottom: "125px",
+          opacity: opacityY,
+          marginBottom: "100px",
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
           gap: "5px",
@@ -99,7 +93,7 @@ const SpotSection = () => {
           songName={jubileeAcousticSongData.songName}
           artists={jubileeAcousticSongData.artists}
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

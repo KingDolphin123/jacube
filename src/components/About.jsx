@@ -1,31 +1,33 @@
 import "./About.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { isMobile } from "react-device-detect";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 import jacubelogo from "../assets/about.jpg";
 
 const About = () => {
-  const [yScroll, setyScroll] = useState(0);
+  const ref = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setyScroll(currentScrollY);
-    };
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  const opacityY = useTransform(
+    scrollYProgress,
+    [0.05, isMobile ? 0.4 : 0.3],
+    ["0", "1"]
+  );
   return (
     <div className="custom-container">
-      <div
+      <motion.div
         className="sticky-section"
         style={{
           width: "65vw",
           flexDirection: isMobile ? "column" : "row",
-          opacity: (yScroll - (isMobile ? 1000 : 1200)) / 250,
+          opacity: opacityY,
         }}
+        ref={ref}
       >
         <img src={jacubelogo} className="logoAbout" />
         <div className="textblob">
@@ -40,7 +42,7 @@ const About = () => {
             'Jubilee' having been released in November of 2024.
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

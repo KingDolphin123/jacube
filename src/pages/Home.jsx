@@ -13,6 +13,8 @@ import Footer from "../components/Footer";
 import PageBuddies from "../components/PageBuddies";
 
 import SectionTitle from "../components/SectionTitle";
+import SectionTitle2 from "../components/SectionTitle2";
+
 import About from "../components/About";
 import Cursor from "../components/Cursor";
 
@@ -51,40 +53,15 @@ const Home = () => {
     <div className="home">
       <Navbar />
       <VideoSection initHeight={initHeight} initWidth={initWidth} />
-      <DownArrow
-        initHeight={isTablet ? "800x" : isMobile ? "650px" : "85vh"}
-      />
+      <DownArrow initHeight={isTablet ? "800x" : isMobile ? "650px" : "85vh"} />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
-      <SectionTitle
-        title="MUSIC"
-        direction="left"
-        spotSectionHeight={-250}
-        viewportHeight={viewportHeight}
-      />
-      {/* <SectionTitle
-        title="DONALD TRUMP AMONG US IMPOSTER SUSSY BAKA"
-        direction="right"
-        spotSectionHeight={-50}
-        viewportHeight={viewportHeight}
-      /> */}
-
+      <SectionTitle2 title={"music"} header={"i like dolphins"} />
       <SpotSection />
-      <SectionTitle
-        title="ABOUT"
-        direction="right"
-        spotSectionHeight={250}
-        viewportHeight={viewportHeight}
-      />
-      {/* <SectionTitle
-        title="ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT"
-        direction="left"
-        spotSectionHeight={spotSectionHeight + 250}
-        songWidth={boundingWidth}
-        viewportHeight={viewportHeight}
-      /> */}
+      <SectionTitle2 title={"about"} header={"i reaaaaly like dolphins"} />
+
       <About />
       {!isMobile && <Cursor />}
-      {/* <PageBuddies /> */}
+      <PageBuddies />
       <Footer />
     </div>
   );
