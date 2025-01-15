@@ -63,6 +63,19 @@ const SpotSection = () => {
     [0.05, isMobile ? 0.4 : 0.3],
     ["0", "1"]
   );
+  const xMove = useTransform(
+    scrollYProgress,
+    [.1, isMobile ? 0.5 : 0.4],
+    ["-150vw", "0vw"]
+  );
+  const smoothXMove = useSpring(xMove, { stiffness: 150, damping: 30 });
+
+  const rotate = useTransform(
+    scrollYProgress,
+    [.1, isMobile ? 0.5 : 0.4],
+    ["-8deg", "0deg"]
+  );
+  const smoothRotate = useSpring(rotate, { stiffness: 150, damping: 30 });
 
   return (
     <div className="spot">
@@ -75,10 +88,12 @@ const SpotSection = () => {
           border: "3px solid white",
           padding: "10px",
           opacity: opacityY,
-          marginBottom: "100px",
+          marginBottom: isMobile ? "20px" : "40px",
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
           gap: "5px",
+          x: smoothXMove,
+          rotate: smoothRotate,
         }}
       >
         <CustomSongEmbed

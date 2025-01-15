@@ -18,6 +18,21 @@ const About = () => {
     [0.05, isMobile ? 0.4 : 0.3],
     ["0", "1"]
   );
+
+  const xMove = useTransform(
+    scrollYProgress,
+    [0.1, isMobile ? 0.5 : 0.4],
+    ["150vw", "0vw"]
+  );
+  const smoothXMove = useSpring(xMove, { stiffness: 150, damping: 30 });
+
+  const rotate = useTransform(
+    scrollYProgress,
+    [0.1, isMobile ? 0.5 : 0.4],
+    ["8deg", "0deg"]
+  );
+  const smoothRotate = useSpring(rotate, { stiffness: 150, damping: 30 });
+
   return (
     <div className="custom-container">
       <motion.div
@@ -26,6 +41,8 @@ const About = () => {
           width: "65vw",
           flexDirection: isMobile ? "column" : "row",
           opacity: opacityY,
+          x: smoothXMove,
+          rotate: smoothRotate,
         }}
         ref={ref}
       >

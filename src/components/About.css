@@ -15,8 +15,9 @@
   align-items: center;
   border: 3px solid white;
   padding: 10px;
+  z-index: 2;
   /* border-radius: 19px; */
-  font-family: "Baskerville Old Face", serif;
+  font-family: "Gotham Light", serif;
 }
 
 .custom-container {
@@ -35,6 +36,8 @@
 .header {
   font-size: 15vmin;
   margin-bottom: 0px;
+  font-family: "Crostan Bold", serif;
+
 }
 .subheader {
   font-size: 5vmin;
@@ -42,4 +45,6 @@
   font-weight: 1000;
   line-height: 95%;
   margin-bottom: 20px;
+  font-family: "Crostan Bold", serif;
+
 }

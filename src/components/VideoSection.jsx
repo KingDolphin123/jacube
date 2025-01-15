@@ -94,12 +94,13 @@ const VideoSection = () => {
   return (
     <div>
       <div
+        className="video-overlay"
         style={{
           position: "relative",
           width: "100vw",
           height: isTablet ? "1024px" : isMobile ? "820px" : "100vh",
           overflow: "hidden",
-          opacity: -(yScroll - (isMobile ? 700 : 700)) / 100,
+          opacity: -(yScroll - (isMobile ? 800 : 800)) / 500,
         }}
       >
         <div className="mask-animation">
