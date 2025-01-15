@@ -1,18 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
 
 import Lenis from "@studio-freight/lenis";
 
 import Home from "./pages/Home";
 import Scroller from "./components/Scroller";
 
-import jacubelogo from "./assets/jacubefull.svg";
 
 import "./App.css";
 
 function App() {
-  const { scrollY } = useScroll();
   useEffect(() => {
     const lenis = new Lenis();
 
