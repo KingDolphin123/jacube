@@ -136,10 +136,10 @@ const About = () => {
             </motion.div>
           </div>
           <div>
-            <div className="subheader" ref={textRef}>
+            <div className="subheader">
               i'm jacob
             </div>
-            <div className="textbody" ref={textRef}>
+            <div className="textbody" ref={!isMobile ? textRef : null}>
               I've been involved with music for as long as I can remember.
               Started with piano for a few years (I forgot it all) and now
               guitar for over a decade. I started producing and writing in 2021

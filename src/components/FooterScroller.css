@@ -11,6 +11,7 @@
 
 .scroller[data-animated="true"] .scroller__inner {
   width: max-content;
+  will-change: transform;
   animation: scroll var(--_animation-duration, 40s) linear infinite;
 }
 

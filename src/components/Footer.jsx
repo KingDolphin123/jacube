@@ -22,7 +22,7 @@ const Footer = () => {
       }}>
         <h1
           style={{
-            paddingRight: "20px",
+            paddingRight: "10px",
             fontSize: "1rem",
             display: "inline-block",
           }}
