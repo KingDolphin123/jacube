@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import "./FooterScroller.css";
+import { isMobile } from "react-device-detect";
 
 const FooterScroller = () => {
   useEffect(() => {
     const scrollers = document.querySelectorAll(".scroller");
 
-    // Add animation if reduced motion is not preferred
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       addAnimation(scrollers);
     }
@@ -18,7 +18,6 @@ const FooterScroller = () => {
       const scrollerInner = scroller.querySelector(".scroller__inner");
       const scrollerContent = Array.from(scrollerInner.children);
 
-      // Duplicate content until width is at least twice the viewport width
       while (scrollerInner.scrollWidth < scroller.offsetWidth * 2) {
         scrollerContent.forEach((item) => {
           const duplicatedItem = item.cloneNode(true);
@@ -27,8 +26,7 @@ const FooterScroller = () => {
         });
       }
 
-      // Apply custom animation duration
-      const duration = "80s";
+      const duration = isMobile ? "40s" : "80s";
       scroller.style.setProperty("--_animation-duration", duration);
     });
   }

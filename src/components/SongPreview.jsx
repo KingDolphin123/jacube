@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { isMobile } from "react-device-detect";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
@@ -37,7 +36,7 @@ const SongPreview = () => {
     >
       <div
         style={{
-          height: "15vh",
+          height: "150px",
           width: "65vw",
           padding: "10px",
           border: "3px solid white",
@@ -48,11 +47,10 @@ const SongPreview = () => {
           showJumpControls={false}
           customVolumeControls={[]}
           customProgressBarSection={["PROGRESS_BAR"]}
-          customAdditionalControls={[]} // Removes loop and other additional buttons
+          customAdditionalControls={[]} 
           style={{
-            height: "15vh",
-            color: "blue", // Icon color
-            backgroundColor: "#E8E8E8", // Player background color
+            height: "150px",
+            backgroundColor: "#E8E8E8", 
           }}
         />
       </div>
