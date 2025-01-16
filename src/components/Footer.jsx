@@ -27,7 +27,7 @@ const Footer = () => {
             display: "inline-block",
           }}
         >
-          See the source code! {"-> "}{" "}
+          Check out the source code! {"-> "}{" "}
         </h1>
         <a
           href="https://github.com/KingDolphin123/jacube"

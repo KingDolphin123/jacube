@@ -80,18 +80,11 @@ const About = () => {
 
     splitText();
 
-    const handleResize = () => {
-      splitText();
-    };
-
-    window.addEventListener("resize", handleResize);
-
     return () => {
-      window.removeEventListener("resize", handleResize);
       const split = new SplitType(textRef.current, { types: "lines" });
       split.revert();
     };
-  }, []); 
+  }, []);
 
   return (
     <div className="custom-container">
@@ -142,8 +135,10 @@ const About = () => {
               Hi!
             </motion.div>
           </div>
-          <div >
-            <div className="subheader" ref={textRef}>i'm jacob</div>
+          <div>
+            <div className="subheader" ref={textRef}>
+              i'm jacob
+            </div>
             <div className="textbody" ref={textRef}>
               I've been involved with music for as long as I can remember.
               Started with piano for a few years (I forgot it all) and now

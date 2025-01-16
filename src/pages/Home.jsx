@@ -70,7 +70,7 @@ const Home = () => {
       <SectionTitle2 title={"PREVIEW"} header={"a taste of the future"} />
       <SongPreview />
 
-      <FooterScroller />
+      {/* <FooterScroller /> */}
       <Footer />
       {!isMobile && <Cursor />}
     </div>

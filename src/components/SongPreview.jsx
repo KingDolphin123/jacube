@@ -32,7 +32,7 @@ const SongPreview = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: "180px",
+        marginBottom: "250px",
       }}
     >
       <div
