@@ -5,6 +5,8 @@ import "./Footer.css";
 import insta from "../assets/insta.png";
 import linked from "../assets/linked.png";
 import github from "../assets/github.png";
+import FooterScroller from "./FooterScroller";
+import { isMobile } from "react-device-detect";
 
 const Footer = () => {
   return (
@@ -14,35 +16,44 @@ const Footer = () => {
       }}
       className="footer"
     >
-      <h1
-        style={{
-          paddingRight: "3px",
-          fontSize: "1rem",
-        }}
-      >
-        Check out the source code! {"-> "}{" "}
-      </h1>
-      <a
-        href="https://github.com/KingDolphin123/jacube"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <img alt="github" className="socials" src={github}></img>
-      </a>
-      <a
-        href="https://www.instagram.com/miamidolphins/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <img alt="instagram" className="socials" src={insta}></img>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/jacob-lee-230984218/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <img alt="linkedin" className="socials" src={linked}></img>
-      </a>
+      <div style={{
+        display:"flex",
+        alignItems:"center"
+      }}>
+        <h1
+          style={{
+            paddingRight: "20px",
+            fontSize: "1rem",
+            display: "inline-block",
+          }}
+        >
+          See the source code! {"-> "}{" "}
+        </h1>
+        <a
+          href="https://github.com/KingDolphin123/jacube"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img alt="github" className="socials" src={github}></img>
+        </a>
+        <a
+          href="https://www.instagram.com/miamidolpzzzzzzhins/"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            marginRight: ".2vw",
+          }}
+        >
+          <img alt="instagram" className="socials" src={insta}></img>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jacob-lee-230984218/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img alt="linkedin" className="socials" src={linked}></img>
+        </a>
+      </div>
     </motion.nav>
   );
 };

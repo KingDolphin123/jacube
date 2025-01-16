@@ -6,18 +6,17 @@
 .logoAbout {
   max-height: 640px;
   max-width: 640px;
-  width: 96%;
   height: auto;
 }
 .sticky-section {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 3px solid white;
+  border: 3px solid #E8E8E8;
   padding: 10px;
   z-index: 2;
   /* border-radius: 19px; */
-  font-family: "Gotham Light", serif;
+  font-family: "Circular-Std", serif;
 }
 
 .custom-container {
@@ -36,7 +35,7 @@
 .header {
   font-size: 15vmin;
   margin-bottom: 0px;
-  font-family: "Crostan Bold", serif;
+  font-family: "Marcovaldo Regular Trial", serif;
 }
 .subheader {
   font-size: 5vmin;
@@ -44,5 +43,15 @@
   font-weight: 1000;
   line-height: 95%;
   margin-bottom: 20px;
-  font-family: "Crostan Bold", serif;
+  font-family: "Circular-Std", serif;
+}
+
+.textbody {
+  position: relative;
+  overflow: hidden;
+}
+
+.textbody .line {
+  display: block;
+  will-change: opacity, transform;
 }

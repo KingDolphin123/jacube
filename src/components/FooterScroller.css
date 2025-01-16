@@ -1,0 +1,35 @@
+.scroller {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 25px;
+}
+
+.scroller__inner {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  animation: scroll var(--_animation-duration, 40s) linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tag-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  display: inline-block;
+  font-size: 23px;
+}

@@ -25,9 +25,12 @@ src/
 │   ├── DownArrow.jsx           # Appears on the hero section, scrolls the page on click
 │   ├── Footer.css              # Styling for Footer
 │   ├── Footer.jsx              # Footer
+│   ├── FooterScroller.css      # Styling for FooterScroller
+│   ├── FooterScroller.jsx      # Infinite horizontal scroller right above the footer
 │   ├── HeroSection.css         # Styling for HeroSection
 │   ├── HeroSection.jsx         # This is the old hero section, feel free to look around! but it's not in use
 │   ├── HomeText.jsx            # Text that appears on the hero section "More Than Birds"
+│   ├── MoreMusicLink.jsx       # Button that takes user to spotify page, thanks Christina!
 │   ├── Navbar.css              # Styling for Navbar
 │   ├── Navbar.jsx              # Not really a "navbar" since there are no routes, but uh this is just the logo at the top
 │   ├── PageBuddies.css         # Styling for PageBuddies
@@ -36,6 +39,7 @@ src/
 │   ├── SectionTitle.css        # Styling for SectionTitle
 │   ├── SectionTitle.jsx        # This is the old section titles, removed because there were tacky 😛
 │   ├── SectionTitle2.jsx       # The section titles in production, nice
+│   ├── SongPreview.jsx         # Audio box component for playing the preview
 │   ├── SpotSection.css         # Styling for SpotSection
 │   ├── SpotSection.jsx         # The bounding for the CustomSongEmbeds
 │   ├── VideoSection.css        # Styling for VideoSection
@@ -104,9 +108,11 @@ To adjust the layout for specific devices, edit the `isMobile` checks and CSS st
 
 This page was built using [Vite](https://vite.dev/) for React.js
 
-Parallax motion was built using [FramerMotion](https://motion.dev/)
+Motion animation was built using [FramerMotion](https://motion.dev/) and [GSAP](https://gsap.com/)
 
 This site is hosted on [Netlify](https://app.netlify.com/)
+
+Audio styling by [react-h5-audio-player](https://www.npmjs.com/package/react-h5-audio-player)
 
 This page was built by [Jacob Lee](https://www.linkedin.com/in/jacob-lee-230984218/)
 

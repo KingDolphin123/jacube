@@ -8,6 +8,7 @@ import "./Home.css";
 import SpotSection from "../components/SpotSection";
 import Navbar from "../components/Navbar";
 import VideoSection from "../components/VideoSection";
+import MoreMusicLink from "../components/MoreMusicLink";
 
 import Footer from "../components/Footer";
 import PageBuddies from "../components/PageBuddies";
@@ -17,6 +18,9 @@ import SectionTitle2 from "../components/SectionTitle2";
 
 import About from "../components/About";
 import Cursor from "../components/Cursor";
+import SongPreview from "./../components/SongPreview";
+import FooterScroller from './../components/FooterScroller';
+
 
 const Home = () => {
   const boundingRef = useRef(null);
@@ -55,14 +59,20 @@ const Home = () => {
       <VideoSection initHeight={initHeight} initWidth={initWidth} />
       <DownArrow initHeight={isTablet ? "800x" : isMobile ? "650px" : "85vh"} />
       <HomeText initHeight={initHeight} initWidth={initWidth} />
+
       <SectionTitle2 title={"MUSIC"} header={"joyful noises"} />
       <SpotSection />
-      <SectionTitle2 title={"ABOUT"} header={"a little bit about me"} />
+      <MoreMusicLink />
 
+      <SectionTitle2 title={"ABOUT"} header={"a little bit about me"} />
       <About />
-      {!isMobile && <Cursor />}
-      {/* <PageBuddies /> */}
+
+      <SectionTitle2 title={"PREVIEW"} header={"a taste of the future"} />
+      <SongPreview />
+
+      <FooterScroller />
       <Footer />
+      {!isMobile && <Cursor />}
     </div>
   );
 };

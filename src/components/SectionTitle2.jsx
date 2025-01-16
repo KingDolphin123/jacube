@@ -56,7 +56,7 @@ const SectionTitle2 = ({ title, header }) => {
             style={{
               position: "relative",
               display: "inline-block",
-              background: "linear-gradient(to right, #F5F5F7 50%, #252525 50%)",
+              background: "linear-gradient(to right, #E8E8E8 50%, #252525 50%)",
               backgroundSize: "200% 100%",
               backgroundPosition: maskPosition,
               WebkitBackgroundClip: "text",
@@ -81,7 +81,7 @@ const SectionTitle2 = ({ title, header }) => {
             style={{
               position: "relative",
               display: "inline-block",
-              background: "linear-gradient(to right, #F5F5F7 50%, #252525 50%)",
+              background: "linear-gradient(to right, #E8E8E8 50%, #252525 50%)",
               backgroundSize: "200% 100%",
               backgroundPosition: maskPosition,
               WebkitBackgroundClip: "text",

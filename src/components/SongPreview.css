@@ -1,0 +1,16 @@
+.rhap_container .rhap_main-controls-button {
+  color: #111416; /* Change the play/pause icon color */
+}
+
+.rhap_progress-indicator {
+  background-color: #111416; /* Adjust to your desired knob color */
+}
+
+.rhap_progress-bar {
+  background-color: #11141654; /* Adjust to your desired background color */
+}
+
+/* Change the progress indicator color */
+.rhap_progress-filled {
+  background-color: #1d5db6; /* Adjust to your desired filled color */
+}

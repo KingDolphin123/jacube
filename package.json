@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@motionone/utils": "^10.18.0",
     "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^11.16.1",
     "gsap": "^3.12.5",
@@ -19,7 +20,9 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
     "react-h5-audio-player": "^3.10.0-rc.1",
+    "react-infinite-scroller": "^1.2.6",
     "react-router-dom": "^7.1.1",
+    "split-type": "^0.3.4",
     "spotify-url-info": "^3.2.18"
   },
   "devDependencies": {
