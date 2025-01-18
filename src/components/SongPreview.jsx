@@ -47,10 +47,11 @@ const SongPreview = () => {
           showJumpControls={false}
           customVolumeControls={[]}
           customProgressBarSection={["PROGRESS_BAR"]}
-          customAdditionalControls={[]} 
+          customAdditionalControls={[]}
+          showDownloadProgress={false}
           style={{
             height: "150px",
-            backgroundColor: "#E8E8E8", 
+            backgroundColor: "#E8E8E8",
           }}
         />
       </div>

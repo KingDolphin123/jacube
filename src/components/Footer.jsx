@@ -37,7 +37,7 @@ const Footer = () => {
           <img alt="github" className="socials" src={github}></img>
         </a>
         <a
-          href="https://www.instagram.com/miamidolpzzzzzzhins/"
+          href="https://www.instagram.com/jacubemusic/"
           target="_blank"
           rel="noreferrer"
           style={{
