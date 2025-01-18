@@ -8,7 +8,7 @@ This project implements a modern and visually captivating artist landing page us
 - Section titles that feature scrolling animations.
 - Scalable and dynamic sections including "Music" and "About" at the moment
 - High responsiveness tailored for mobile and desktop devices.
-- An Esther (easter) egg if you look through the code 😃
+- An Esther (easter) egg if you look through the code 😃 hint! app -ly your skills and find the correct route
 
 ## Folder Structure
 
